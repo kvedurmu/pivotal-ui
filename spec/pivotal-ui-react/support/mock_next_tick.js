@@ -4,7 +4,7 @@ const {default: defaultSetImmediate} = require('core-js/fn/set-immediate');
 
 let callbacks = [];
 
-const nextTick = jasmine.createSpy('nextTick').and.callFake(function(callback) {
+const nextTick = jasmine.createSpy('nextTick').and.callFake((callback) => {
   callbacks.push(callback);
 });
 

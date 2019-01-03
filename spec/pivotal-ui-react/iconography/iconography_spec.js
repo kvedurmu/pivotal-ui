@@ -1,12 +1,12 @@
 import '../spec_helper';
 import {Icon} from '../../../src/react/iconography';
 
-describe('iconography', function() {
-  afterEach(function() {
+describe('iconography', () => {
+  afterEach(() => {
     ReactDOM.unmountComponentAtNode(root);
   });
 
-  it('works', function() {
+  it('works', () => {
     ReactDOM.render(<Icon src="add"/>, root);
     expect('.icon svg').toExist();
   });

@@ -1,12 +1,12 @@
 var callbacks = [];
 
-var raf = jasmine.createSpy('raf').and.callFake(function(callback) {
+var raf = jasmine.createSpy('raf').and.callFake((callback) => {
   callbacks.push(callback);
 });
 
 Object.assign(raf, {
   next() {
-    callbacks.forEach(function(cb) {
+    callbacks.forEach((cb) => {
       cb();
       callbacks.splice(callbacks.indexOf(cb), 1);
     });

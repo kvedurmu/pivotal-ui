@@ -35,7 +35,7 @@ function writeFile(path, data) {
   });
 }
 
-gulp.task('react-build-src', function () {
+gulp.task('react-build-src', () => {
   return gulp.src(`${srcFolder}/**/*.js`)
     .pipe(plugins.plumber())
     .pipe(plugins.babel())
