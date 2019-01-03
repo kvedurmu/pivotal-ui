@@ -50,7 +50,7 @@ describe('mergeProps', () => {
       });
 
       it('combines classNames', () => {
-        let classNames = mergedProps().className.split(/\s+/);
+        const classNames = mergedProps().className.split(/\s+/);
         expect(classNames).toContain('class1');
         expect(classNames).toContain('class2');
         expect(classNames.length).toEqual(2);

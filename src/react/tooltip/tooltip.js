@@ -24,7 +24,7 @@ export class Tooltip extends React.PureComponent {
   }
 
   render() {
-    let {isSticky, visible, size, className, children, ...others} = this.props;
+    const {isSticky, visible, size, className, children, ...others} = this.props;
 
     const newClasses = classnames('tooltip-container', visible ? 'tooltip-container-visible' : 'tooltip-container-hidden',
                                   size === 'auto' ? null : `tooltip-${size}`,

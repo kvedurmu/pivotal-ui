@@ -173,7 +173,7 @@ export class LeftTabs extends React.PureComponent {
   }
 
   render() {
-    let {tabWidth, ...props} = this.props;
+    const {tabWidth, ...props} = this.props;
     return <Tabs {...props} tabWidth={tabWidth}/>;
   }
 }

@@ -1,6 +1,6 @@
-var callbacks = [];
+let callbacks = [];
 
-var raf = jasmine.createSpy('raf').and.callFake((callback) => {
+const raf = jasmine.createSpy('raf').and.callFake((callback) => {
   callbacks.push(callback);
 });
 

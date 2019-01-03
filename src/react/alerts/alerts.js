@@ -34,7 +34,7 @@ class Alert extends React.PureComponent {
   };
 
   render() {
-    let {alertIcon, bsStyle, children, closeLabel, dismissable, onDismiss: __ignore, show, withIcon, ...others} = this.props;
+    const {alertIcon, bsStyle, children, closeLabel, dismissable, onDismiss: __ignore, show, withIcon, ...others} = this.props;
 
     const props = mergeProps(others, {
       role: 'alert',

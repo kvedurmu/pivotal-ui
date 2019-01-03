@@ -43,7 +43,7 @@ class CollapsibleComponent extends mixin(React.Component).with(Animation) {
   };
 
   render() {
-    let {boundingClientRect: {height = 0}, children, container, delay, expanded, onEntered, onExited, ...others} = this.props;
+    const {boundingClientRect: {height = 0}, children, container, delay, expanded, onEntered, onExited, ...others} = this.props;
     const fractionOpen = this.animate('fractionOpen', expanded ? 1 : 0, delay);
     const isAnimating = (!expanded && fractionOpen > 0) || (expanded && fractionOpen < 1);
     const style = (height && isAnimating) ? {marginBottom: -height * (1 - fractionOpen)} : {};

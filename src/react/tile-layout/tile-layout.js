@@ -20,7 +20,7 @@ export class TileLayout extends React.Component {
     if (columns instanceof Object) {
       const classes = [];
 
-      for (let breakpoint in columns) {
+      for (const breakpoint in columns) {
         if (columns.hasOwnProperty(breakpoint)) {
           classes.push(`tile-layout-${breakpoint}-${columns[breakpoint]}`);
         }

@@ -1,4 +1,4 @@
-var time = 0;
+let time = 0;
 function now() {
   return time;
 }

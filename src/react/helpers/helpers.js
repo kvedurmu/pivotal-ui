@@ -33,7 +33,7 @@ import classnames from 'classnames';
 
 export const mergeProps = (reactInstanceProps, defaultProps) => {
   let {className, id, style, ...remainingProps} = reactInstanceProps;
-  let {
+  const {
     className: defaultClassName,
     id: defaultId,
     style: defaultStyle={},

@@ -11,7 +11,7 @@ describe('Portals', () => {
       this.state = {};
     }
     render() {
-      var {cake} = this.state;
+      const {cake} = this.state;
       return (<div className="potato">{cake ? 'cake is a lie' : 'Potato'}</div>);
     }
   }
