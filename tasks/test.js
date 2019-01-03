@@ -1,7 +1,7 @@
 import gulp from 'gulp';
-import plugins from 'gulp-load-plugins';
+import loadPlugins from 'gulp-load-plugins';
 
-const {plumber, jasmine} = plugins();
+const {plumber, jasmine} = loadPlugins();
 
 gulp.task('jasmine-task-helpers', () => gulp.src(['spec/task-helpers/**/*_spec.js'])
   .pipe(plumber())

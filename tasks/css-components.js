@@ -1,8 +1,9 @@
 import del from 'del';
 import gulp from 'gulp';
 import mergeStream from 'merge-stream';
+import loadPlugins from 'gulp-load-plugins';
 
-const plugins = require('gulp-load-plugins')();
+const plugins = loadPlugins();
 const buildFolder = 'dist/css';
 
 gulp.task('css-build-src', () => gulp.src(['src/css/**/*.scss', '!src/css/*.scss'])
