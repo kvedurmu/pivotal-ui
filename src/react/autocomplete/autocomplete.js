@@ -11,26 +11,24 @@ import through from 'through';
 import TrieSearch from 'trie-search';
 import PropTypes from 'prop-types';
 
-const trieFromSearchableItems = (searchableItems, trieOptions) => {
-  return new Promise(resolve => {
-    let trie;
-    from(function (count, callback) {
-      if (searchableItems && count >= searchableItems.length) this.emit('end');
-      this.emit('data', searchableItems[count]);
-      callback();
-    }).pipe(through(value => {
-      if (typeof value === 'object') {
-        if (!trie) trie = new TrieSearch(null, trieOptions);
-        trie.addFromObject(value);
-        resolve(trie);
-        return;
-      }
-      if (!trie) trie = new TrieSearch('value', trieOptions);
-      trie.add({value});
+const trieFromSearchableItems = (searchableItems, trieOptions) => new Promise(resolve => {
+  let trie;
+  from(function (count, callback) {
+    if (searchableItems && count >= searchableItems.length) this.emit('end');
+    this.emit('data', searchableItems[count]);
+    callback();
+  }).pipe(through(value => {
+    if (typeof value === 'object') {
+      if (!trie) trie = new TrieSearch(null, trieOptions);
+      trie.addFromObject(value);
       resolve(trie);
-    }));
-  });
-};
+      return;
+    }
+    if (!trie) trie = new TrieSearch('value', trieOptions);
+    trie.add({value});
+    resolve(trie);
+  }));
+});
 
 export class Autocomplete extends mixin(React.Component).with(Scrim) {
   static propTypes = {
@@ -74,11 +72,9 @@ export class Autocomplete extends mixin(React.Component).with(Scrim) {
   componentDidMount() {
     super.componentDidMount();
     require('../../css/autocomplete');
-    this.props.onInitializeItems((searchableItems = []) => {
-      return trieFromSearchableItems(searchableItems, this.props.trieOptions).then(trie => {
-        this.setState({searchableItems, trie});
-      });
-    });
+    this.props.onInitializeItems((searchableItems = []) => trieFromSearchableItems(searchableItems, this.props.trieOptions).then(trie => {
+      this.setState({searchableItems, trie});
+    }));
   }
 
   searchItemsInOrder = () => {

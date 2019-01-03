@@ -84,8 +84,7 @@ class Alert extends React.PureComponent {
   }
 }
 
-const defAlert = props => {
-  return class extends React.Component {
+const defAlert = props => class extends React.Component {
     static propTypes = {
       dismissable: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
       withIcon: PropTypes.bool
@@ -98,13 +97,12 @@ const defAlert = props => {
     render() {
       const {children, ...others} = this.props;
       return (<Alert {...props} {...others}>
-          <span className="sr-only">
-            {(props.bsStyle === 'danger' ? 'error' : props.bsStyle) + ' alert message,'}
-          </span>
+        <span className="sr-only">
+          {(props.bsStyle === 'danger' ? 'error' : props.bsStyle) + ' alert message,'}
+        </span>
         {children}
       </Alert>);
     }
-  };
 };
 
 export const SuccessAlert = defAlert({bsStyle: 'success', alertIcon: 'check_circle'});

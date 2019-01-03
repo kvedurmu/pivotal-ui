@@ -27,9 +27,9 @@ export class Tooltip extends React.PureComponent {
     const {isSticky, visible, size, className, children, ...others} = this.props;
 
     const newClasses = classnames('tooltip-container', visible ? 'tooltip-container-visible' : 'tooltip-container-hidden',
-                                  size === 'auto' ? null : `tooltip-${size}`,
-                                  isSticky? 'tooltip-hoverable': null,
-                                  className);
+      size === 'auto' ? null : `tooltip-${size}`,
+      isSticky? 'tooltip-hoverable': null,
+      className);
 
     return (
       <div className={newClasses} {...others}>
@@ -103,9 +103,9 @@ export class TooltipTrigger extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if(prevState.visible && !this.state.visible) {
+    if (prevState.visible && !this.state.visible) {
       this.props.onExited();
-    } else if(!prevState.visible && this.state.visible) {
+    } else if (!prevState.visible && this.state.visible) {
       this.props.onEntered();
     }
   }
@@ -115,12 +115,12 @@ export class TooltipTrigger extends React.Component {
     const {visible} = this.state;
 
     let placementClass;
-    if(placement !== 'top') {
+    if (placement !== 'top') {
       placementClass = `tooltip-${placement}`;
     }
 
     let triggerHandler;
-    switch(trigger) {
+    switch (trigger) {
       case 'click':
         triggerHandler = {onClick: e => this.clickHandler(e, onClick)};
         break;

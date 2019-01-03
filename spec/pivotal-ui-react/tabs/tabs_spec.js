@@ -18,7 +18,7 @@ describe('Tabs', () => {
     const component = ReactDOM.render(
       <Tabs {...mergedProps}>
         <Tab eventKey={1} title="Tab1" tabClassName="tab-class" className="tab-content-class" onEntered={onEnterSpy}
-             onExited={onExitSpy} aria-labelledby="provided-aria-label">Content1</Tab>
+          onExited={onExitSpy} aria-labelledby="provided-aria-label">Content1</Tab>
         <Tab eventKey={2} title="Tab2" onEntered={onEnterSpy} onExited={onExitSpy}>Content2</Tab>
         <Tab eventKey={3} disabled title="DisabledTab">DisabledContent</Tab>
       </Tabs>,

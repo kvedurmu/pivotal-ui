@@ -50,12 +50,12 @@ export class OverlayTrigger extends mixin(React.Component).with(Scrim) {
   };
 
   componentWillReceiveProps({display}) {
-    if(display !== this.props.display) this.setDisplay(display);
+    if (display !== this.props.display) this.setDisplay(display);
   }
 
   componentDidUpdate(prevProps, prevState) {
     require('../../css/tooltips');
-    if(prevState.display !== this.state.display) {
+    if (prevState.display !== this.state.display) {
       const {onEntered, onExited} = this.props;
       const callback = this.state.display ? onEntered : onExited;
       callback && callback();
@@ -63,31 +63,27 @@ export class OverlayTrigger extends mixin(React.Component).with(Scrim) {
   }
 
   componentWillUnmount() {
-    if(super.componentWillUnmount) super.componentWillUnmount();
+    if (super.componentWillUnmount) super.componentWillUnmount();
     clearTimeout(privates.get(this).timeout);
   }
 
-  triggerShow = eventType => {
-    return (...args) => {
-      this.show();
-      const userCallback = this.props.children.props[eventType];
-      userCallback && userCallback(...args);
-    };
+  triggerShow = eventType => (...args) => {
+    this.show();
+    const userCallback = this.props.children.props[eventType];
+    userCallback && userCallback(...args);
   };
 
-  triggerHide = eventType => {
-    return (...args) => {
-      this.hide();
-      const userCallback = this.props.children.props[eventType];
-      userCallback && userCallback(...args);
-    };
+  triggerHide = eventType => (...args) => {
+    this.hide();
+    const userCallback = this.props.children.props[eventType];
+    userCallback && userCallback(...args);
   };
 
   getDelay = display => {
     const {delay, delayHide, delayShow, isSticky} = this.props;
-    if(display && delayShow) return delayShow;
-    if(!display && delayHide) return delayHide;
-    if(!display && isSticky && !delay) return 50;
+    if (display && delayShow) return delayShow;
+    if (!display && delayHide) return delayHide;
+    if (!display && isSticky && !delay) return 50;
     return delay;
   };
 
@@ -96,7 +92,7 @@ export class OverlayTrigger extends mixin(React.Component).with(Scrim) {
   setDisplay = (display) => {
     const oldTimeout = privates.get(this).timeout;
 
-    if(display === this.state.display) {
+    if (display === this.state.display) {
       clearTimeout(oldTimeout);
       privates.set(this, {timeout: null});
       return;
@@ -104,10 +100,10 @@ export class OverlayTrigger extends mixin(React.Component).with(Scrim) {
 
     const delay = this.getDelay(display);
 
-    if(oldTimeout && delay) return;
+    if (oldTimeout && delay) return;
 
     let timeout;
-    if(delay) {
+    if (delay) {
       timeout = setTimeout(() => {
         privates.set(this, {timeout: null});
         this.setState({display});
@@ -164,8 +160,8 @@ export class OverlayTrigger extends mixin(React.Component).with(Scrim) {
     });
 
     const classes = classnames('tooltip', {
-        'tooltip-light': theme === 'light'
-      }
+      'tooltip-light': theme === 'light'
+    }
     );
 
     const tetherProps = {

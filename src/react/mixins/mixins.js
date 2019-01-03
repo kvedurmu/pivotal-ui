@@ -1,7 +1,5 @@
-export default ParentClass => {
-  return {
-    with(...classGenerators) {
-      return classGenerators.reduceRight((ParentClass, classGenerator) => classGenerator(ParentClass), ParentClass);
-    }
-  };
-};
+export default ParentClass => ({
+  with(...classGenerators) {
+    return classGenerators.reduceRight((ParentClass, classGenerator) => classGenerator(ParentClass), ParentClass);
+  }
+});

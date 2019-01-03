@@ -89,12 +89,10 @@ export class UIButton extends React.Component {
 
   }
 }
-const defButton = propOverrides => {
-  return class extends React.Component {
-    render() {
-      return <UIButton {...this.props} {...propOverrides}/>;
-    }
-  };
+const defButton = propOverrides => class extends React.Component {
+  render() {
+    return <UIButton {...this.props} {...propOverrides}/>;
+  }
 };
 
 export const DefaultButton = defButton();

@@ -5,14 +5,12 @@ describe('withCellTooltip', () => {
   let tooltip, data;
 
   beforeEach(() => {
-    tooltip = jasmine.createSpy('tooltip').and.callFake(({isHeader}) => {
-      return {
-        text: `is header? ${isHeader}`,
-        size: isHeader ? 'md' : undefined,
-        theme: isHeader ? 'light' : 'dark',
-        showIcon: isHeader
-      };
-    });
+    tooltip = jasmine.createSpy('tooltip').and.callFake(({isHeader}) => ({
+      text: `is header? ${isHeader}`,
+      size: isHeader ? 'md' : undefined,
+      theme: isHeader ? 'light' : 'dark',
+      showIcon: isHeader
+    }));
     const columns = [{
       attribute: 'attr1', tooltip
     }, {

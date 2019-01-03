@@ -41,7 +41,7 @@ export class PortalSource extends React.PureComponent {
   componentWillUnmount() {
     emitter.removeListener('destination', this.setDestination);
     const {root} = this.state.destination || {};
-    if(root) {
+    if (root) {
       root.parentNode.removeChild(root);
     }
   }

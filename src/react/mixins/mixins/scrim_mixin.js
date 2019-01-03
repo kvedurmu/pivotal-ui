@@ -14,8 +14,7 @@ function rootClick(e) {
 
 const privates = new WeakMap();
 
-export default ParentClass => {
-  return class Scrim extends ParentClass {
+export default ParentClass => class Scrim extends ParentClass {
     static propTypes = {
       disableScrim: PropTypes.bool
     };
@@ -39,5 +38,4 @@ export default ParentClass => {
       const document = this.props.getDocument ? this.props.getDocument() : global.document;
       if (typeof document === 'object') document.documentElement.removeEventListener('click', privates.get(this));
     }
-  };
 };

@@ -6,7 +6,7 @@ export class AutocompleteList extends React.Component {
   static propTypes = {
     $autocomplete: PropTypes.object,
     children(props, name) {
-      if(props[name] && props[name].length) return new Error('AutocompleteList can only wrap one element');
+      if (props[name] && props[name].length) return new Error('AutocompleteList can only wrap one element');
     },
     className: PropTypes.string,
     minSearchTerm: PropTypes.number,
@@ -41,10 +41,10 @@ export class AutocompleteList extends React.Component {
       const className = classnames('autocomplete-item', {highlighted: key === this.props.$autocomplete.get('highlightedSuggestion')}, {selected: value === this.props.selectedSuggestion});
       return (<li key={key}>
         <a href="#" onClick={this.onClick.bind(this, suggestion)} role="button" title={value}
-           className={className}>{value}</a>
+          className={className}>{value}</a>
       </li>);
     });
-    if(!suggestions.length) {
+    if (!suggestions.length) {
       const result = showNoSearchResults ? (<div><ul><li className="autocomplete-list autocomplete-item autocomplete-item-no-results">No search results</li></ul></div>) : null;
       return result;
     }
@@ -54,16 +54,16 @@ export class AutocompleteList extends React.Component {
   renderDefault() {
     const {$autocomplete, minSearchTerm} = this.props;
     const {hidden, value} = $autocomplete.get();
-    if(hidden || (value.length < minSearchTerm)) return null;
+    if (hidden || (value.length < minSearchTerm)) return null;
     return this.renderSuggestionList();
   }
 
   render() {
     let {children, $autocomplete, ...props} = this.props;
-    if(!$autocomplete) return null;
-    if(!children) return this.renderDefault();
+    if (!$autocomplete) return null;
+    if (!children) return this.renderDefault();
     const {hidden, value, highlightedSuggestion, suggestedValues} = $autocomplete.get();
-    if(hidden) return null;
+    if (hidden) return null;
 
 
     children = React.Children.map(children, e => React.cloneElement(e, {

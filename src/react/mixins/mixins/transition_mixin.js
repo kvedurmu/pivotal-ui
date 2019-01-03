@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default ParentClass => {
-  return class Transition extends ParentClass {
+export default ParentClass => class Transition extends ParentClass {
     static propTypes = {
       onEntered: PropTypes.func,
       onExited: PropTypes.func
@@ -18,5 +17,4 @@ export default ParentClass => {
       const transitioning = (open !== this.state.open);
       if (transitioning && transitionCallback) transitionCallback();
     }
-  };
 };

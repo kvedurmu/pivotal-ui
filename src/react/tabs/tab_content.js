@@ -40,7 +40,7 @@ export default class TabContent extends React.Component {
       tabContent = (
         <div className={classnames('tab-content', {[leftPaneClasses]: isLeft}, className)} {...props}>
           <div className="tab-pane fade active in" id={paneId} role="tabpanel" aria-labelledby={ariaLabelledBy || tabId}
-               aria-hidden="false" style={style}>
+            aria-hidden="false" style={style}>
             {children}
           </div>
         </div>

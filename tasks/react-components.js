@@ -35,13 +35,11 @@ function writeFile(path, data) {
   });
 }
 
-gulp.task('react-build-src', () => {
-  return gulp.src(`${srcFolder}/**/*.js`)
-    .pipe(plugins.plumber())
-    .pipe(plugins.babel())
-    .pipe(plugins.header(COPYRIGHT))
-    .pipe(gulp.dest(buildFolder));
-});
+gulp.task('react-build-src', () => gulp.src(`${srcFolder}/**/*.js`)
+  .pipe(plugins.plumber())
+  .pipe(plugins.babel())
+  .pipe(plugins.header(COPYRIGHT))
+  .pipe(gulp.dest(buildFolder)));
 
 gulp.task('react-build-svgs', async() => {
   const items = await readdir('./src/css/iconography/svgs');

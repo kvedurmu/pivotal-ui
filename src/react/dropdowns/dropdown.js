@@ -7,20 +7,18 @@ import Transition from '../mixins/mixins/transition_mixin';
 import {Icon} from '../iconography';
 import {Grid, FlexCol} from '../flex-grids';
 
-const defaultToggleNode = (showIcon, icon, onClick, size, title, className, ariaLabel) => {
-  return (
-    <button {...{
-      type: 'button',
-      className,
-      onClick,
-      'aria-haspopup': true,
-      'aria-label': ariaLabel
-    }}>
-      {title}
-      {showIcon && <Icon src={icon} className="icon-toggle"/>}
-    </button>
-  );
-};
+const defaultToggleNode = (showIcon, icon, onClick, size, title, className, ariaLabel) => (
+  <button {...{
+    type: 'button',
+    className,
+    onClick,
+    'aria-haspopup': true,
+    'aria-label': ariaLabel
+  }}>
+    {title}
+    {showIcon && <Icon src={icon} className="icon-toggle"/>}
+  </button>
+);
 
 export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
   constructor(props, context) {
@@ -129,11 +127,11 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
 
     return (<div className={dropdownClasses} {...props}>
       {split ? <Grid gutter={false}>
-          <FlexCol className="dropdown-label">{title}</FlexCol>
-          <FlexCol fixed className="dropdown-icon-col col-middle">
-            {toggleNode}
-          </FlexCol>
-        </Grid>
+        <FlexCol className="dropdown-label">{title}</FlexCol>
+        <FlexCol fixed className="dropdown-icon-col col-middle">
+          {toggleNode}
+        </FlexCol>
+      </Grid>
         : toggleNode}
       {(blockingScrim && open && !disableScrim) && <div className="scrim" onClick={this.scrimClick}/>}
       {dropdownOptions}

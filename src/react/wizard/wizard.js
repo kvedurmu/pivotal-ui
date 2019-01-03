@@ -97,26 +97,26 @@ export class Wizard extends React.Component {
 
     const cancelButton = (
       <PrimaryButton alt className="wizard-cancel-btn"
-                     onClick={this.onClickCancel}>{cancelText}</PrimaryButton>
+        onClick={this.onClickCancel}>{cancelText}</PrimaryButton>
     );
 
     const backButton = backComponent || (
-        <PrimaryButton alt className="wizard-back-btn" disabled={saving}
-                       onClick={this.onClickBack}>Back</PrimaryButton>
-      );
+      <PrimaryButton alt className="wizard-back-btn" disabled={saving}
+        onClick={this.onClickBack}>Back</PrimaryButton>
+    );
 
     const icon = saving && <Icon src="spinner-sm"/>;
     const finishButton = finishComponent || (
-        <PrimaryButton {...{
-          className: 'wizard-finish-btn',
-          icon,
-          onClick: this.onClickFinish
-        }}>{saving ? savingText : finishText}</PrimaryButton>
-      );
+      <PrimaryButton {...{
+        className: 'wizard-finish-btn',
+        icon,
+        onClick: this.onClickFinish
+      }}>{saving ? savingText : finishText}</PrimaryButton>
+    );
 
     const nextButton = (
       <PrimaryButton className="wizard-next-btn" disabled={nextDisabled}
-                     onClick={this.onClickNext}>{nextText()}</PrimaryButton>
+        onClick={this.onClickNext}>{nextText()}</PrimaryButton>
     );
 
     return (

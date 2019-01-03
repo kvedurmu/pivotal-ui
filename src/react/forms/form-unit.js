@@ -55,8 +55,8 @@ export class FormUnit extends React.Component {
         {tooltipIcon}
         {label && optional && <span
           className="optional-text type-neutral-4">
-                  {optionalText || optionalText === '' ? optionalText : '(Optional)'}
-                </span>}
+          {optionalText || optionalText === '' ? optionalText : '(Optional)'}
+        </span>}
       </label>
     );
   };
@@ -91,18 +91,18 @@ export class FormUnit extends React.Component {
     const sections = labelPosition === 'after' ? [fieldRow, labelRow] : [labelRow, fieldRow];
     const showRowClassNames = (key, position) => key === position && labelPosition !== 'after' || key === (1 - position) && labelPosition === 'after';
     const content = inline ? ([
-        <Grid className="grid-inline" key="top">
-          {sections.map((col, key) => (
-            <FlexCol {...{
-              key,
-              fixed: key === 0,
-              className: classnames({
-                [classnames('label-row', labelRowClassName)]: showRowClassNames(key, 0),
-                [classnames('field-row', fieldRowClassName)]: showRowClassNames(key, 1)
-              })
-            }}>{col}</FlexCol>
-          ))}
-        </Grid>]
+      <Grid className="grid-inline" key="top">
+        {sections.map((col, key) => (
+          <FlexCol {...{
+            key,
+            fixed: key === 0,
+            className: classnames({
+              [classnames('label-row', labelRowClassName)]: showRowClassNames(key, 0),
+              [classnames('field-row', fieldRowClassName)]: showRowClassNames(key, 1)
+            })
+          }}>{col}</FlexCol>
+        ))}
+      </Grid>]
     ) : sections;
     !hideHelpRow && content.push(helpRow);
     return content;

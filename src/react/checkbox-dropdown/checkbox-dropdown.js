@@ -82,17 +82,14 @@ export class CheckboxDropdown extends React.Component {
     const {labels, onChange, className, ...dropDownProps} = this.props;
     const {options} = this.state;
 
-    const dropdownItems = Object.entries(options).map(([label, checked]) => {
-
-      return (
-        <Checkbox className="checkbox-dropdown-item-checkbox man"
-                  labelClassName="pui-checkbox-dropdown-item-label"
-                  key={label}
-                  checked={checked}
-                  onChange={doNothing}
-                  onClick={e => this.toggleOption(e, label)}>{label}</Checkbox>
-      );
-    });
+    const dropdownItems = Object.entries(options).map(([label, checked]) => (
+      <Checkbox className="checkbox-dropdown-item-checkbox man"
+        labelClassName="pui-checkbox-dropdown-item-label"
+        key={label}
+        checked={checked}
+        onChange={doNothing}
+        onClick={e => this.toggleOption(e, label)}>{label}</Checkbox>
+    ));
 
     const checkBoxAllProps = {
       className: 'checkbox-dropdown-item-checkbox all-checkbox man',

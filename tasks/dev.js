@@ -7,15 +7,11 @@ gulp.task('build-license', () =>
     .pipe(gulp.dest(buildFolder))
 );
 
-gulp.task('build-readme', () => {
-  return gulp.src('README.md')
-    .pipe(gulp.dest(buildFolder));
-});
+gulp.task('build-readme', () => gulp.src('README.md')
+  .pipe(gulp.dest(buildFolder)));
 
-gulp.task('build-package', () => {
-  return gulp.src('package.json')
-    .pipe(gulp.dest(buildFolder));
-});
+gulp.task('build-package', () => gulp.src('package.json')
+  .pipe(gulp.dest(buildFolder)));
 
 gulp.task('build', gulp.series(
   'build-license',

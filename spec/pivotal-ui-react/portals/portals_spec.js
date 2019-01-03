@@ -135,16 +135,16 @@ describe('Portals', () => {
 
   describe('when the portals are rendered destination first then source', () => {
     const renderComponent = () => ReactDOM.render(
-        <div>
-          <div className="orange">
-            <PortalDestination name="chell"/>
-          </div>
-          <div className="blue">
-            <PortalSource name="chell">
-              <Potato/>
-            </PortalSource>
-          </div>
-        </div>, container);
+      <div>
+        <div className="orange">
+          <PortalDestination name="chell"/>
+        </div>
+        <div className="blue">
+          <PortalSource name="chell">
+            <Potato/>
+          </PortalSource>
+        </div>
+      </div>, container);
 
 
     it('does not render the source portal content', () => {

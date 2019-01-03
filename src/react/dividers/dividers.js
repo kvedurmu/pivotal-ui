@@ -27,8 +27,7 @@ export class Divider extends React.PureComponent {
   }
 }
 
-const defDivider = props => {
-  return class extends React.PureComponent {
+const defDivider = props => class extends React.PureComponent {
     static propTypes = {
       inverse: PropTypes.bool,
       size: PropTypes.oneOf(['large'])
@@ -37,7 +36,6 @@ const defDivider = props => {
     render() {
       return <Divider {...props} {...this.props} />;
     }
-  };
 };
 
 export const InverseDivider = defDivider({inverse: true});

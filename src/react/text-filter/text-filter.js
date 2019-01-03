@@ -55,8 +55,8 @@ export class TextFilter extends React.Component {
             <input placeholder={filterPlaceholderText} type="text" value={filterText} onChange={this.onFilterTextChange}/>
           </FlexCol>
           <FlexCol className="pan text-filter-counts" fixed alignment="middle">
-              <span className="filtered-count">{filteredData.length}
-              </span> / <span className="unfiltered-count">{data.length}</span>
+            <span className="filtered-count">{filteredData.length}
+            </span> / <span className="unfiltered-count">{data.length}</span>
           </FlexCol>
         </Grid>
         {renderBlock}

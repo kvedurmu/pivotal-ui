@@ -37,7 +37,7 @@ export const mergeProps = (reactInstanceProps, defaultProps) => {
     className: defaultClassName,
     id: defaultId,
     style: defaultStyle={},
-  ...remainingDefaultProps
+    ...remainingDefaultProps
   } = defaultProps;
 
   className = classnames(defaultClassName, className);

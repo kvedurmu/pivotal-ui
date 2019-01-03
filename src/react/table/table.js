@@ -57,9 +57,9 @@ export class Table extends TablePlugin {
     }, {
       method: 'tfoot', children: []
     }].map(({method, children}, key) => {
-        const Tag = this.plugTag(method, method);
-        return <Tag {...{...this.plugProps(method, {children}), key}}/>;
-      }
+      const Tag = this.plugTag(method, method);
+      return <Tag {...{...this.plugProps(method, {children}), key}}/>;
+    }
     );
 
     return (
