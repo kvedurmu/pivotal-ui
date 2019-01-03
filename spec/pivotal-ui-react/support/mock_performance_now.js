@@ -13,4 +13,4 @@ Object.assign(now, {
   }
 });
 
-module.exports = now;
+export default now;

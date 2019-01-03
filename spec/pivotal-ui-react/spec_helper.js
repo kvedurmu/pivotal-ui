@@ -1,4 +1,5 @@
-import 'babel-polyfill';
+console.log('up here');
+import '@babel/polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import MockNextTick from './support/mock_next_tick';

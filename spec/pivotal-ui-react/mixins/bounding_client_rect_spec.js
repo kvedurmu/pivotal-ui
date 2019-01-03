@@ -1,7 +1,8 @@
+console.log('in here');
 import '../spec_helper';
 import {useBoundingClientRect} from '../../../src/react/mixins/components/bounding_client_rect';
 
-describe('BoundingClientRect', () => {
+fdescribe('BoundingClientRect', () => {
   const width = 100;
   const height = 200;
   let Klass, subject, resizeSpy;

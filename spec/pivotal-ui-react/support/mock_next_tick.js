@@ -1,7 +1,8 @@
 const {nextTick: defaultNextTick} = require('process');
 const {setImmediate: nativeSetImmediate} = global;
-const {default: defaultSetImmediate} = require('babel-runtime/core-js/set-immediate');
+const {default: defaultSetImmediate} = require('@babel/runtime/core-js/set-immediate');
 
+console.log('hi');
 let callbacks = [];
 
 const nextTick = jasmine.createSpy('nextTick').and.callFake(function(callback) {
@@ -13,10 +14,10 @@ function cleanup(cb) {
   callbacks.splice(callbacks.indexOf(cb), 1);
 }
 
-module.exports = {
+export default {
   install() {
     require('process').nextTick = nextTick;
-    require('babel-runtime/core-js/set-immediate').default = nextTick;
+    require('@babel/runtime/core-js/set-immediate').default = nextTick;
     global.setImmediate = nextTick;
   },
 
@@ -35,7 +36,7 @@ module.exports = {
   uninstall() {
     this.next();
     require('process').nextTick = defaultNextTick;
-    require('babel-runtime/core-js/set-immediate').default = defaultSetImmediate;
+    require('@babel/runtime/core-js/set-immediate').default = defaultSetImmediate;
     global.setImmediate = nativeSetImmediate;
   }
 };

@@ -16,4 +16,4 @@ Object.assign(raf, {
   }
 });
 
-module.exports = raf;
+export default raf;

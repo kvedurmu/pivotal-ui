@@ -56,6 +56,7 @@ export const useBoundingClientRect = Klass => {
     }
 
     render() {
+      console.log('render?');
       const {resize} = privates.get(this) || {};
       const boundingClientRect = this.getBoundingClientRect();
       privates.set(this, {boundingClientRect, resize});
