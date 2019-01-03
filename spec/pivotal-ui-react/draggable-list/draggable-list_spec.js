@@ -22,7 +22,7 @@ describe('DraggableList', () => {
 
   describe('when given an innerClassName', () => {
     beforeEach(() => {
-      subject::setProps({innerClassName: 'inner-test-class'});
+      setProps(subject, {innerClassName: 'inner-test-class'});
     });
 
     it('passes through innerClassName to item content', () => {
@@ -39,7 +39,7 @@ describe('DraggableList', () => {
       dataTransferStub.setData = setDataSpy;
       dragEndSpy = jasmine.createSpy('dragEnd');
 
-      subject::setProps({onDragEnd: dragEndSpy});
+      setProps(subject, {onDragEnd: dragEndSpy});
     });
 
     it('does not apply dragging class to ul by default', () => {

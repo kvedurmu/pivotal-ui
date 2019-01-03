@@ -37,7 +37,7 @@ describe('BaseCollapse', () => {
 
   describe('when the divider property is set to true', () => {
     beforeEach(() => {
-      subject::setProps({divider: true});
+      setProps(subject, {divider: true});
     });
 
     it('renders a divider on top of the panel body', () => {

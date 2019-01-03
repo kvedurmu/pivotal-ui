@@ -210,7 +210,7 @@ describe('Autocomplete', () => {
   describe('when the user tries to apply a selection that is not in the list', () => {
     beforeEach(() => {
       pickSpy.calls.reset();
-      subject::setProps({onPick: pickSpy});
+      setProps(subject, {onPick: pickSpy});
       MockNextTick.next();
       MockPromises.tick();
 
@@ -225,7 +225,7 @@ describe('Autocomplete', () => {
 
   describe('when one of the autocomplete items is the selected suggestion', () => {
     beforeEach(() => {
-      subject::setProps({selectedSuggestion: 'lily.water'});
+      setProps(subject, {selectedSuggestion: 'lily.water'});
       MockNextTick.next();
       MockPromises.tick();
 
@@ -242,7 +242,7 @@ describe('Autocomplete', () => {
   describe('when there are no suggested autocomplete results', () => {
     describe('when the showNoSearchResultsProp is true', () => {
       beforeEach(() => {
-        subject::setProps({showNoSearchResults: true});
+        setProps(subject, {showNoSearchResults: true});
         $('input[aria-label="Search"]').val('zzzz').simulate('change');
       });
 
@@ -254,7 +254,7 @@ describe('Autocomplete', () => {
 
   describe('when maxItems is provided', () => {
     it('caps length of displayed list', () => {
-      subject::setProps({maxItems: 1});
+      setProps(subject, {maxItems: 1});
       MockNextTick.next();
       MockPromises.tick();
 
@@ -268,7 +268,7 @@ describe('Autocomplete', () => {
   describe('when a custom filter function is provided', () => {
     it('filters results', () => {
       const containsLetterE = items => items.filter(item => item.value.name.indexOf('e') !== -1);
-      subject::setProps({onFilter: containsLetterE});
+      setProps(subject, {onFilter: containsLetterE});
       MockNextTick.next();
       MockPromises.tick();
 
@@ -349,7 +349,7 @@ describe('Autocomplete', () => {
 
   describe('when a initial value is provided', () => {
     beforeEach(() => {
-      subject::setProps({value: 'lily.water'});
+      setProps(subject, {value: 'lily.water'});
     });
 
     it('defaults to that value being selected', () => {
@@ -360,7 +360,7 @@ describe('Autocomplete', () => {
   describe('when a custom (possibly asynchronous) search function is provided', () => {
     let cb;
     beforeEach(() => {
-      subject::setProps({
+      setProps(subject, {
         onSearch: (_, callback) => cb = callback
       });
       MockNextTick.next();

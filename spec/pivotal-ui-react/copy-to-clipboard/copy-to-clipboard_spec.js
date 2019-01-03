@@ -29,7 +29,7 @@ describe('CopyToClipboard', () => {
 
   describe('when given tooltip text', () => {
     beforeEach(() => {
-      subject::setProps({tooltip: 'Copied successfully!'});
+      setProps(subject, {tooltip: 'Copied successfully!'});
     });
 
     it('uses the custom tooltip text', () => {
@@ -39,7 +39,7 @@ describe('CopyToClipboard', () => {
 
   describe('when given additional props', () => {
     beforeEach(() => {
-      subject::setProps({className: 'test-class', id: 'test-id', style: {opacity: '0.5'}});
+      setProps(subject, {className: 'test-class', id: 'test-id', style: {opacity: '0.5'}});
     });
 
     it('passes the props to the anchor', () => {

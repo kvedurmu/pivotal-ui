@@ -14,7 +14,7 @@ describe('Input', () => {
 
   describe('when given props', () => {
     beforeEach(() => {
-      subject::setProps({
+      setProps(subject, {
         type: 'password',
         className: 'some-class'
       });
@@ -28,7 +28,7 @@ describe('Input', () => {
 
   describe('size = sm', () => {
     beforeEach(() => {
-      subject::setProps({size: 'sm'});
+      setProps(subject, {size: 'sm'});
     });
 
     it('has the input-sm class', () => {
@@ -38,7 +38,7 @@ describe('Input', () => {
 
   describe('size = small', () => {
     beforeEach(() => {
-      subject::setProps({size: 'small'});
+      setProps(subject, {size: 'small'});
     });
 
     it('has the input-sm class', () => {
@@ -48,7 +48,7 @@ describe('Input', () => {
 
   describe('size = lg', () => {
     beforeEach(() => {
-      subject::setProps({size: 'lg'});
+      setProps(subject, {size: 'lg'});
     });
 
     it('has the input-lg class', () => {
@@ -58,7 +58,7 @@ describe('Input', () => {
 
   describe('size = large', () => {
     beforeEach(() => {
-      subject::setProps({size: 'large'});
+      setProps(subject, {size: 'large'});
     });
 
     it('has the input-lg class', () => {
@@ -68,7 +68,7 @@ describe('Input', () => {
 
   describe('icon', () => {
     beforeEach(() => {
-      subject::setProps({icon: 'search'});
+      setProps(subject, {icon: 'search'});
     });
 
     it('renders an input-icon-container', () => {

@@ -1,5 +1,7 @@
 import '../spec_helper';
 import {Dropdown} from '../../../src/react/dropdowns';
+import ReactDOM from 'react-dom';
+import React from 'react';
 
 describe('Dropdown', () => {
   let subject;
@@ -39,7 +41,7 @@ describe('Dropdown', () => {
 
     beforeEach(() => {
       onClickSpy = jasmine.createSpy('on click');
-      subject::setProps({split: true, onClick: onClickSpy, title: <div className="split-title"/>});
+      setProps(subject, {split: true, onClick: onClickSpy, title: <div className="split-title"/>});
     });
 
     it('opens the dropdown when the dropdown button is clicked', () => {
@@ -57,21 +59,21 @@ describe('Dropdown', () => {
 
   it('calls onClick when dropdown toggle is clicked', () => {
     const onClickSpy = jasmine.createSpy('onClick');
-    subject::setProps({onClick: onClickSpy});
+    setProps(subject, {onClick: onClickSpy});
     $('.dropdown-toggle').simulate('click');
     expect(onClickSpy).toHaveBeenCalled();
   });
 
   it('calls onEntered when opening', () => {
     const onEnteredSpy = jasmine.createSpy('onEntered');
-    subject::setProps({onEntered: onEnteredSpy});
+    setProps(subject, {onEntered: onEnteredSpy});
     $('.dropdown-toggle').simulate('click');
     expect(onEnteredSpy).toHaveBeenCalled();
   });
 
   it('calls onExited when closing', () => {
     const onExitedSpy = jasmine.createSpy('onExited');
-    subject::setProps({onExited: onExitedSpy});
+    setProps(subject, {onExited: onExitedSpy});
 
     $('.dropdown-toggle').simulate('click');
     expect(onExitedSpy).not.toHaveBeenCalled();
@@ -100,7 +102,7 @@ describe('Dropdown', () => {
 
     describe('when floatMenu is in the props', () => {
       it('renders a floating menu', () => {
-        subject::setProps({floatMenu: true});
+        setProps(subject, {floatMenu: true});
         expect('.dropdown-menu').toHaveClass('dropdown-menu-float');
       });
     });
@@ -120,7 +122,7 @@ describe('Dropdown', () => {
 
       describe('when blockingScrim is true and disableScrim is false', () => {
         beforeEach(() => {
-          subject::setProps({blockingScrim: true});
+          setProps(subject, {blockingScrim: true});
           $('.dropdown-toggle').simulate('click');
         });
 
@@ -169,7 +171,7 @@ describe('Dropdown', () => {
 
       describe('when blockingScrim is true and disableScrim is true', () => {
         beforeEach(() => {
-          subject::setProps({blockingScrim: true, disableScrim: true});
+          setProps(subject, {blockingScrim: true, disableScrim: true});
           $('.dropdown-toggle').simulate('click');
         });
 
@@ -194,7 +196,7 @@ describe('Dropdown', () => {
 
       describe('when blockingScrim is false and disableScrim is true', () => {
         beforeEach(() => {
-          subject::setProps({disableScrim: true});
+          setProps(subject, {disableScrim: true});
           $('.dropdown-toggle').simulate('click');
         });
 
@@ -219,7 +221,7 @@ describe('Dropdown', () => {
 
       describe('when closeOnMenuClick is false', () => {
         it('does not close when the menu is clicked', () => {
-          subject::setProps({closeOnMenuClick: false});
+          setProps(subject, {closeOnMenuClick: false});
           $('.dropdown-toggle').simulate('click');
           $('.dropdown-menu li:eq(0)').simulate('click');
           expect('.dropdown-open').toExist();
@@ -228,7 +230,7 @@ describe('Dropdown', () => {
 
       describe('when scroll is true', () => {
         it('renders a scrollable menu', () => {
-          subject::setProps({scroll: true});
+          setProps(subject, {scroll: true});
           $('.dropdown-toggle').simulate('click');
           expect('.dropdown-menu').toHaveClass('dropdown-menu-scroll');
         });
@@ -237,7 +239,7 @@ describe('Dropdown', () => {
 
     describe('when border is provided', () => {
       it('has the border class', () => {
-        subject::setProps({border: true});
+        setProps(subject, {border: true});
         $('.dropdown-toggle').simulate('click');
         expect('.dropdown-menu').toHaveClass('dropdown-border');
       });
@@ -245,19 +247,19 @@ describe('Dropdown', () => {
 
     describe('when menuAlign is provided', () => {
       it('can align right', () => {
-        subject::setProps({menuAlign: 'right'});
+        setProps(subject, {menuAlign: 'right'});
         $('.dropdown-toggle').simulate('click');
         expect('.dropdown-menu').toHaveClass('dropdown-menu-right');
       });
 
       it('can align left', () => {
-        subject::setProps({menuAlign: 'left'});
+        setProps(subject, {menuAlign: 'left'});
         $('.dropdown-toggle').simulate('click');
         expect('.dropdown-menu').toHaveClass('dropdown-menu-left');
       });
 
       it('can align none', () => {
-        subject::setProps({menuAlign: 'none'});
+        setProps(subject, {menuAlign: 'none'});
         $('.dropdown-toggle').simulate('click');
         expect('.dropdown-menu').not.toHaveClass('dropdown-menu-right');
         expect('.dropdown-menu').not.toHaveClass('dropdown-menu-left');
@@ -268,7 +270,7 @@ describe('Dropdown', () => {
   describe('when title is provided', () => {
     describe('when split is false', () => {
       it('puts the title in the dropdown toggle', () => {
-        subject::setProps({split: false, title: 'Dropping'});
+        setProps(subject, {split: false, title: 'Dropping'});
         expect('.dropdown-label').not.toExist();
         expect('.dropdown-toggle').toHaveText('Dropping');
       });
@@ -276,7 +278,7 @@ describe('Dropdown', () => {
 
     describe('when split is true', () => {
       it('puts the title in a grid alongside the dropdown toggle', () => {
-        subject::setProps({split: true, title: 'Dropping'});
+        setProps(subject, {split: true, title: 'Dropping'});
         expect('.dropdown .grid .col:eq(0)').toHaveText('Dropping');
         expect('.dropdown .grid .col:eq(1) .dropdown-toggle').toExist();
         expect('.dropdown .grid .col:eq(1) .dropdown-toggle').not.toHaveText('Dropping');
@@ -286,7 +288,7 @@ describe('Dropdown', () => {
 
   describe('when title is not provided and split is false', () => {
     it('renders an icon-only dropdown', () => {
-      subject::setProps({split: false, title: null});
+      setProps(subject, {split: false, title: null});
       expect('.dropdown-icon-only').toExist();
       expect('.dropdown-menu').toHaveClass('dropdown-menu-float');
     });
@@ -294,25 +296,25 @@ describe('Dropdown', () => {
 
   describe('when flat is set in the props', () => {
     it('renders the flat styled dropdown', () => {
-      subject::setProps({flat: true});
+      setProps(subject, {flat: true});
       expect('.dropdown').toHaveClass('dropdown-flat');
     });
   });
 
   describe('when showIcon is false', () => {
     it('still renders an icon if there is not a title', () => {
-      subject::setProps({showIcon: false, title: null});
+      setProps(subject, {showIcon: false, title: null});
       expect('.icon-chevron_down').toExist();
     });
 
     it('still renders an icon if the dropdown is a split dropdown', () => {
-      subject::setProps({showIcon: false, split: true});
+      setProps(subject, {showIcon: false, split: true});
 
       expect('.icon-chevron_down').toExist();
     });
 
     it('does not render an icon otherwise', () => {
-      subject::setProps({showIcon: false, title: 'List of Things'});
+      setProps(subject, {showIcon: false, title: 'List of Things'});
 
       expect('.icon').not.toExist();
       expect('.icon-chevron_down').not.toExist();
@@ -321,20 +323,20 @@ describe('Dropdown', () => {
 
   describe('when link prop is true', () => {
     it('adds the dropdown-link class to make everything link colors', () => {
-      subject::setProps({link: true});
+      setProps(subject, {link: true});
       expect('.dropdown').toHaveClass('dropdown-link');
     });
   });
 
   describe('when size is provided', () => {
     it('can be large', () => {
-      subject::setProps({size: 'large'});
+      setProps(subject, {size: 'large'});
       $('.dropdown-toggle').simulate('click');
       expect('.dropdown-lg').toExist();
     });
 
     it('can be normal', () => {
-      subject::setProps({size: 'normal'});
+      setProps(subject, {size: 'normal'});
       $('.dropdown-toggle').simulate('click');
 
       expect('.dropdown-sm').not.toExist();
@@ -342,7 +344,7 @@ describe('Dropdown', () => {
     });
 
     it('can be small', () => {
-      subject::setProps({size: 'small'});
+      setProps(subject, {size: 'small'});
       $('.dropdown-toggle').simulate('click');
 
       expect('.dropdown-sm').toExist();
@@ -351,14 +353,14 @@ describe('Dropdown', () => {
 
   describe('when icon is provided', () => {
     it('renders the associated svg', () => {
-      subject::setProps({icon: 'more_vert'});
+      setProps(subject, {icon: 'more_vert'});
       expect('.icon-more_vert').toExist();
     });
   });
 
   describe('when given children', () => {
     beforeEach(() => {
-      subject::setProps({
+      setProps(subject, {
         children: [
           <a key="1" href="/link1">Link 1</a>,
           false,
@@ -376,7 +378,7 @@ describe('Dropdown', () => {
 
   describe('when given an item class name', () => {
     beforeEach(() => {
-      subject::setProps({
+      setProps(subject, {
         itemClassName: 'custom-li-class',
         children: [
           <a key="1" href="/link1">Link 1</a>,

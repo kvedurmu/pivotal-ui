@@ -230,7 +230,7 @@ describe('checkbox dropdown', () => {
       let testableFn;
       beforeEach(() => {
         testableFn = jasmine.createSpy('testableFn');
-        subject::setProps({onChange: testableFn});
+        setProps(subject, {onChange: testableFn});
         $('.checkbox-dropdown-item-checkbox:eq(2) input[type="checkbox"]').click();
       });
 
@@ -248,7 +248,7 @@ describe('checkbox dropdown', () => {
 
       beforeEach(() => {
         onChange = jasmine.createSpy('onChange');
-        subject::setProps({onChange});
+        setProps(subject, {onChange});
         $('.pui-checkbox-label:eq(2)').click();
       });
 

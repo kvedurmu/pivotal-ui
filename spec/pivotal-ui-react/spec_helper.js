@@ -99,9 +99,9 @@ Object.assign(global, {
   ReactTestUtils
 });
 
-global.setProps = function setProps(props, node = root) {
-  const Component = this.constructor;
-  ReactDOM.render(<Component {...this.props} {...props}/>, node);
+global.setProps = function setProps(subject, props, node = root) {
+  const Component = subject.constructor;
+  ReactDOM.render(<Component {...subject.props} {...props}/>, node);
 };
 
 beforeEach(() => {

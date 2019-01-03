@@ -29,7 +29,7 @@ describe('BoundingClientRect', () => {
 
   describe('when the props change', () => {
     beforeEach(() => {
-      subject::setProps({someProp: 'changed'});
+      setProps(subject, {someProp: 'changed'});
     });
 
     it('calls resize', () => {

@@ -4,7 +4,7 @@ export default ParentClass => {
   return class Animation extends ParentClass {
     componentWillUnmount() {
       if (super.componentWillUnmount) super.componentWillUnmount();
-      this::AnimationMixin.componentWillUnmount();
+      AnimationMixin.componentWillUnmount.call(this);
     }
 
     shouldAnimate = AnimationMixin.shouldAnimate

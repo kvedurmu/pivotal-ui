@@ -138,7 +138,7 @@ describe('Table', () => {
     });
 
     describe('with custom html tags', () => {
-      beforeEach(() => subject::setProps({
+      beforeEach(() => setProps(subject, {
         tableTag: () => 'div',
         theadTag: () => 'div',
         tbodyTag: () => 'div',
@@ -202,7 +202,7 @@ describe('Table', () => {
     });
 
     describe('with opt-out custom html tags', () => {
-      beforeEach(() => subject::setProps({
+      beforeEach(() => setProps(subject, {
         tableTag: () => null,
         theadTag: () => null,
         tbodyTag: () => null,
@@ -268,7 +268,7 @@ describe('Table', () => {
 
     describe('with empty column attribute', () => {
       beforeEach(() => {
-        subject::setProps({ columns: [...columns, {}] });
+        setProps(subject, { columns: [...columns, {}] });
       });
 
       it('renders empty column', () => {

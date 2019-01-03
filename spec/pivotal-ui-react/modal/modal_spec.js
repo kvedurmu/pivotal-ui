@@ -63,7 +63,7 @@ describe('Modal', () => {
 
   describe('when given a title', () => {
     beforeEach(() => {
-      subject::setProps({title: 'This is a modal'});
+      setProps(subject, {title: 'This is a modal'});
     });
 
     it('renders the title in a heading tag', () => {
@@ -79,7 +79,7 @@ describe('Modal', () => {
 
   describe('when given a bodyClassName', () => {
     beforeEach(() => {
-      subject::setProps({bodyClassName: 'some-body-class'});
+      setProps(subject, {bodyClassName: 'some-body-class'});
     });
 
     it('renders the footer in the dialog', () => {
@@ -89,7 +89,7 @@ describe('Modal', () => {
 
   describe('when given a footer', () => {
     beforeEach(() => {
-      subject::setProps({footer: <h6>a footer</h6>, footerClassName: 'some-footer-class'});
+      setProps(subject, {footer: <h6>a footer</h6>, footerClassName: 'some-footer-class'});
     });
 
     it('renders the footer in the dialog', () => {
@@ -102,7 +102,7 @@ describe('Modal', () => {
   describe('when given a size', () => {
     describe('when size = "sm"', () => {
       beforeEach(() => {
-        subject::setProps({size: 'sm'});
+        setProps(subject, {size: 'sm'});
       });
 
       it('adds the corresponding className to the dialog', () => {
@@ -112,7 +112,7 @@ describe('Modal', () => {
 
     describe('when size = "small"', () => {
       beforeEach(() => {
-        subject::setProps({size: 'small'});
+        setProps(subject, {size: 'small'});
       });
 
       it('adds the corresponding className to the dialog', () => {
@@ -122,7 +122,7 @@ describe('Modal', () => {
 
     describe('when size = "lg"', () => {
       beforeEach(() => {
-        subject::setProps({size: 'lg'});
+        setProps(subject, {size: 'lg'});
       });
 
       it('adds the corresponding className to the dialog', () => {
@@ -132,7 +132,7 @@ describe('Modal', () => {
 
     describe('when size = "large"', () => {
       beforeEach(() => {
-        subject::setProps({size: 'large'});
+        setProps(subject, {size: 'large'});
       });
 
       it('adds the corresponding className to the dialog', () => {
@@ -142,7 +142,7 @@ describe('Modal', () => {
 
     describe('when size is a custom width', () => {
       beforeEach(() => {
-        subject::setProps({size: '240px'});
+        setProps(subject, {size: '240px'});
       });
 
       it('does not add a className to the dialog', () => {

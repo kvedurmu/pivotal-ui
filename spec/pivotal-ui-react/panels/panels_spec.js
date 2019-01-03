@@ -37,7 +37,7 @@ describe('Panel', () => {
 
   describe('className', () => {
     beforeEach(() => {
-      subject::setProps({className: 'custom-panel-container-class'});
+      setProps(subject, {className: 'custom-panel-container-class'});
     });
 
     it('renders the panel class name', () => {
@@ -47,7 +47,7 @@ describe('Panel', () => {
 
   describe('title', () => {
     beforeEach(() => {
-      subject::setProps({title: 'some title'});
+      setProps(subject, {title: 'some title'});
     });
 
     it('renders the title', () => {
@@ -60,7 +60,7 @@ describe('Panel', () => {
 
     describe('with titleClassName', () => {
       beforeEach(() => {
-        subject::setProps({titleClassName: 'custom-title-class'});
+        setProps(subject, {titleClassName: 'custom-title-class'});
       });
 
       it('renders the title class name', () => {
@@ -71,7 +71,7 @@ describe('Panel', () => {
 
   describe('titleCols', () => {
     beforeEach(() => {
-      subject::setProps({titleCols: [
+      setProps(subject, {titleCols: [
         <FlexCol>Col 1</FlexCol>,
         <FlexCol>Col 2</FlexCol>
       ]});
@@ -85,7 +85,7 @@ describe('Panel', () => {
 
     describe('with a title', () => {
       beforeEach(() => {
-        subject::setProps({title: 'My Title'});
+        setProps(subject, {title: 'My Title'});
       });
 
       it('renders the title before the title cols', () => {
@@ -99,7 +99,7 @@ describe('Panel', () => {
 
   describe('panelClassName', () => {
     beforeEach(() => {
-      subject::setProps({panelClassName: 'custom-panel-class'});
+      setProps(subject, {panelClassName: 'custom-panel-class'});
     });
 
     it('renders the panel class name', () => {
@@ -109,7 +109,7 @@ describe('Panel', () => {
 
   describe('header', () => {
     beforeEach(() => {
-      subject::setProps({header: 'some header'});
+      setProps(subject, {header: 'some header'});
     });
 
     it('renders the header', () => {
@@ -121,7 +121,7 @@ describe('Panel', () => {
 
     describe('with headerClassName', () => {
       beforeEach(() => {
-        subject::setProps({headerClassName: 'custom-header-class'});
+        setProps(subject, {headerClassName: 'custom-header-class'});
       });
 
       it('renders the header class name', () => {
@@ -132,7 +132,7 @@ describe('Panel', () => {
 
   describe('headerCols', () => {
     beforeEach(() => {
-      subject::setProps({headerCols: [
+      setProps(subject, {headerCols: [
         <FlexCol>Col 1</FlexCol>,
         <FlexCol>Col 2</FlexCol>
       ]});
@@ -146,7 +146,7 @@ describe('Panel', () => {
 
     describe('with a header', () => {
       beforeEach(() => {
-        subject::setProps({header: 'My Header'});
+        setProps(subject, {header: 'My Header'});
       });
 
       it('renders the header before the header cols', () => {
@@ -160,7 +160,7 @@ describe('Panel', () => {
 
   describe('children', () => {
     beforeEach(() => {
-      subject::setProps({children: 'some body'});
+      setProps(subject, {children: 'some body'});
     });
 
     it('renders the body', () => {
@@ -173,7 +173,7 @@ describe('Panel', () => {
 
     describe('with bodyClassName', () => {
       beforeEach(() => {
-        subject::setProps({bodyClassName: 'custom-body-class'});
+        setProps(subject, {bodyClassName: 'custom-body-class'});
       });
 
       it('renders the body class name', () => {
@@ -183,7 +183,7 @@ describe('Panel', () => {
 
     describe('when loading', () => {
       beforeEach(() => {
-        subject::setProps({loading: true});
+        setProps(subject, {loading: true});
       });
 
       it('renders a loading bar', () => {
@@ -194,7 +194,7 @@ describe('Panel', () => {
 
   describe('footer', () => {
     beforeEach(() => {
-      subject::setProps({footer: 'some title'});
+      setProps(subject, {footer: 'some title'});
     });
 
     it('renders the footer', () => {
@@ -205,7 +205,7 @@ describe('Panel', () => {
 
     describe('with footerClassName', () => {
       beforeEach(() => {
-        subject::setProps({footerClassName: 'custom-footer-class'});
+        setProps(subject, {footerClassName: 'custom-footer-class'});
       });
 
       it('renders the footer class name', () => {

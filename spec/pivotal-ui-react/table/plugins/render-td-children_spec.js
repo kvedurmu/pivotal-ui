@@ -61,7 +61,7 @@ describe('withRenderTdChildren', () => {
         attr1: 'new-attr-1', attr2: 'new-attr-2', attr3: 'new-attr-3'
       }];
 
-      subject::setProps({data});
+      setProps(subject, {data});
     });
 
     it('re-renders without re-constructing', () => {

@@ -27,7 +27,7 @@ describe('RadioGroup', () => {
     beforeEach(() => {
       clickedValue = null;
       changeSpy = jasmine.createSpy('change').and.callFake(event => clickedValue = event.nativeEvent.target.value);
-      subject::setProps({onChange: changeSpy, name: 'radioGroup'});
+      setProps(subject, {onChange: changeSpy, name: 'radioGroup'});
       $('.pui-radio-group input[type="radio"]:eq(0)').simulate('change');
     });
 
@@ -39,7 +39,7 @@ describe('RadioGroup', () => {
 
   describe('when given a value', () => {
     beforeEach(() => {
-      subject::setProps({value: 'three'});
+      setProps(subject, {value: 'three'});
     });
 
     it('checks the corresponding radio', () => {
@@ -51,7 +51,7 @@ describe('RadioGroup', () => {
 
   describe('other props and no onChange', () => {
     beforeEach(() => {
-      subject::setProps({id: 'clear-channel', style: {color: 'rgb(255, 0, 0)'}, className: '1234'});
+      setProps(subject, {id: 'clear-channel', style: {color: 'rgb(255, 0, 0)'}, className: '1234'});
     });
 
     it('passes id, style, and className to radio group', () => {

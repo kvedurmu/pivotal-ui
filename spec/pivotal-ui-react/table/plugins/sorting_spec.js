@@ -43,7 +43,7 @@ describe('withSorting', () => {
           data.push({
             attr1: 'row3-value1', attr2: 'row3-value2'
           });
-          subject::setProps({data});
+          setProps(subject, {data});
         });
 
         it('retains the sort order', () => {

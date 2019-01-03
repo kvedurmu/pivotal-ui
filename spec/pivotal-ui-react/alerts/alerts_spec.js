@@ -15,7 +15,7 @@ describe('Alert Component', () => {
     });
 
     it('passes down the className, id, and style properties', () => {
-      subject::setProps({className: 'foo', id: 'bar', style: {fontSize: '200px'}});
+      setProps(subject, {className: 'foo', id: 'bar', style: {fontSize: '200px'}});
 
       expect('.pui-alert').toHaveClass('foo');
       expect('.pui-alert').toHaveAttr('id', 'bar');
@@ -23,13 +23,13 @@ describe('Alert Component', () => {
     });
 
     it('renders a sr-only alert description', () => {
-      subject::setProps({withIcon: true});
+      setProps(subject, {withIcon: true});
       expect('.sr-only').toHaveText('success alert message,');
     });
 
     describe('when dismissable is set to true', () => {
       beforeEach(() => {
-        subject::setProps({dismissable: true});
+        setProps(subject, {dismissable: true});
       });
 
       it('adds the alert-dismissable class', () => {
@@ -48,13 +48,13 @@ describe('Alert Component', () => {
       });
 
       it('adds the closeLabel to the close button', () => {
-        subject::setProps({dismissable: true, closeLabel: 'click to close the alert'});
+        setProps(subject, {dismissable: true, closeLabel: 'click to close the alert'});
         expect('.pui-alert button:eq(0)').toHaveAttr('aria-label');
         expect($('.pui-alert button:eq(0)').attr('aria-label')).toBe('click to close the alert');
       });
 
       it('disappears when close button is clicked', () => {
-        subject::setProps({dismissable: true});
+        setProps(subject, {dismissable: true});
         $('.icon-close').simulate('click');
         expect('.pui-alert').not.toExist();
       });
@@ -67,7 +67,7 @@ describe('Alert Component', () => {
         });
 
         it('calls onDismiss when the close button is clicked', () => {
-          subject::setProps({dismissable: true, onDismiss: onDismissSpy});
+          setProps(subject, {dismissable: true, onDismiss: onDismissSpy});
           $('.icon-close').simulate('click');
           expect(onDismissSpy).toHaveBeenCalled();
         });
@@ -75,13 +75,13 @@ describe('Alert Component', () => {
 
       describe('when show is true', () => {
         it('renders the alert even after the close button is clicked', () => {
-          subject::setProps({dismissable: true, show: true});
+          setProps(subject, {dismissable: true, show: true});
           $('.icon-close').simulate('click');
           expect('.pui-alert').toExist();
         });
 
         it('hides the alert when show is set to false', () => {
-          subject::setProps({dismissable: true, show: false});
+          setProps(subject, {dismissable: true, show: false});
           expect('.pui-alert').not.toExist();
         });
       });
@@ -95,7 +95,7 @@ describe('Alert Component', () => {
 
     describe('when withIcon is set to true', () => {
       beforeEach(() => {
-        subject::setProps({withIcon: true});
+        setProps(subject, {withIcon: true});
       });
 
       it('renders a success alert', () => {

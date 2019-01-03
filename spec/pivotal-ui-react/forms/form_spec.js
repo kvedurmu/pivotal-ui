@@ -74,7 +74,7 @@ describe('Form', () => {
     describe('when adding a field', () => {
       beforeEach(() => {
         fields.age = {initialValue: '0'};
-        subject::setProps({fields});
+        setProps(subject, {fields});
       });
 
       it('updates the state', () => {
@@ -148,7 +148,7 @@ describe('Form', () => {
             reject = rej;
           }));
           Buttons.calls.reset();
-          subject::setProps({onSubmitError, onSubmit});
+          setProps(subject, {onSubmitError, onSubmit});
           $('fieldset > .grid:eq(0) > .col:eq(1) .save').simulate('submit');
         });
 
@@ -300,7 +300,7 @@ describe('Form', () => {
 
           beforeEach(() => {
             onSubmit.and.throwError(error);
-            subject::setProps({onSubmit});
+            setProps(subject, {onSubmit});
             try {
               subject.onSubmit();
             } catch (e) {
@@ -335,7 +335,7 @@ describe('Form', () => {
           </Grid>
         );
         children.propTypes = {fields: PropTypes.object};
-        subject::setProps({fields: {name: {initialValue: 'some-name', validator}, age: false}, children});
+        setProps(subject, {fields: {name: {initialValue: 'some-name', validator}, age: false}, children});
       });
 
       describe('when the validator returns an error', () => {
@@ -1254,7 +1254,7 @@ describe('Form', () => {
       fields = {name: {initialValue: 'some-name'}};
       subject = ReactDOM.render(<Form {...{fields}}>{({fields: {name}}) => name}</Form>, root);
       fields = {name: {initialValue: 'some-other-name'}};
-      subject::setProps({fields});
+      setProps(subject, {fields});
     });
 
     it('changes the state', () => {

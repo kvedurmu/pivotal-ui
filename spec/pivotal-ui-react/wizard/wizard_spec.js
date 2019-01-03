@@ -64,7 +64,7 @@ describe('Wizard', () => {
 
     beforeEach(() => {
       cancel = jasmine.createSpy('cancel');
-      subject::setProps({cancel});
+      setProps(subject, {cancel});
       subject.onClickCancel();
     });
 
@@ -98,7 +98,7 @@ describe('Wizard', () => {
           render: jasmine.createSpy('pageThreeRender'),
           onClickBack
         });
-        subject::setProps({pages});
+        setProps(subject, {pages});
         subject.setState({currentPage: 2});
         subject.onClickBack();
       });
@@ -130,7 +130,7 @@ describe('Wizard', () => {
           onClickBack,
           backComponent: <button className="some-back-button"/>
         });
-        subject::setProps({pages});
+        setProps(subject, {pages});
         subject.setState({currentPage: 2});
       });
 
@@ -177,7 +177,7 @@ describe('Wizard', () => {
         pages.push({
           render: jasmine.createSpy('pageFourRender')
         });
-        subject::setProps({pages});
+        setProps(subject, {pages});
         subject.setState({currentPage: pages.length - 2});
         subject.onClickNext();
       });
@@ -230,7 +230,7 @@ describe('Wizard', () => {
 
       beforeEach(() => {
         cancel = jasmine.createSpy('cancel');
-        subject::setProps({cancel});
+        setProps(subject, {cancel});
       });
 
       it('renders a cancel button', () => {
@@ -239,7 +239,7 @@ describe('Wizard', () => {
 
       describe('with custom cancel text', () => {
         beforeEach(() => {
-          subject::setProps({cancelText: 'Close'});
+          setProps(subject, {cancelText: 'Close'});
         });
 
         it('renders a cancel button with custom text', () => {
@@ -366,7 +366,7 @@ describe('Wizard', () => {
 
     describe('with custom finish text', () => {
       beforeEach(() => {
-        subject::setProps({finishText: 'customFinish'});
+        setProps(subject, {finishText: 'customFinish'});
       });
 
       it('renders the custom text', () => {
@@ -379,7 +379,7 @@ describe('Wizard', () => {
 
       beforeEach(() => {
         finish = jasmine.createSpy('finish');
-        subject::setProps({
+        setProps(subject, {
           finish
         });
         $('.wizard-finish-btn').simulate('click');
@@ -392,7 +392,7 @@ describe('Wizard', () => {
 
     describe('when "saving" is true and savingText is provided', () => {
       beforeEach(() => {
-        subject::setProps({saving: true, savingText: 'Creating'});
+        setProps(subject, {saving: true, savingText: 'Creating'});
       });
 
       it('renders a spinner', () => {
@@ -410,7 +410,7 @@ describe('Wizard', () => {
 
     describe('when "saving" is true and savingText is not provided', () => {
       beforeEach(() => {
-        subject::setProps({saving: true});
+        setProps(subject, {saving: true});
       });
 
       it('changes the button text to the default saving text', () => {

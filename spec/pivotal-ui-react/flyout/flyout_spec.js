@@ -62,7 +62,7 @@ describe('Flyout', () => {
 
   describe('bodyClassName', () => {
     beforeEach(() => {
-      subject::setProps({bodyClassName: 'some-class-name'});
+      setProps(subject, {bodyClassName: 'some-class-name'});
     });
 
     it('sets the given className on the body', () => {
@@ -72,7 +72,7 @@ describe('Flyout', () => {
 
   describe('buttonAriaLabel', () => {
     beforeEach(() => {
-      subject::setProps({buttonAriaLabel: 'Back'});
+      setProps(subject, {buttonAriaLabel: 'Back'});
     });
 
     it('sets the aria-label on the icon button accordingly', () => {
@@ -82,7 +82,7 @@ describe('Flyout', () => {
 
   describe('open prop', () => {
     beforeEach(() => {
-      subject::setProps({open: true});
+      setProps(subject, {open: true});
     });
 
     it('renders the flyout with the flyout-open class', () => {
@@ -93,7 +93,7 @@ describe('Flyout', () => {
   describe('header', () => {
     describe('with a headerClassName prop', () => {
       beforeEach(() => {
-        subject::setProps({headerClassName: 'pan'});
+        setProps(subject, {headerClassName: 'pan'});
       });
 
       it('sets the given className on the header', () => {
@@ -123,7 +123,7 @@ describe('Flyout', () => {
       let iconSrc;
       beforeEach(() => {
         iconSrc = 'arrow_back';
-        subject::setProps({iconSrc});
+        setProps(subject, {iconSrc});
       });
 
       it('renders that icon instead of the close icon', () => {

@@ -70,7 +70,7 @@ describe('Dialog', () => {
 
   describe('when updateParentZIndex is true and modal becomes visible', () => {
     beforeEach(() => {
-      subject::setProps({updateParentZIndex: true, animationDuration: 0, show: true});
+      setProps(subject, {updateParentZIndex: true, animationDuration: 0, show: true});
     });
 
     it('updates the parent z-index', () => {
@@ -79,7 +79,7 @@ describe('Dialog', () => {
 
     describe('when the modal is closed', () => {
       beforeEach(() => {
-        subject::setProps({show: false});
+        setProps(subject, {show: false});
       });
 
       it('updates the parent z-index', () => {
@@ -95,7 +95,7 @@ describe('Dialog', () => {
       subject.closingTimeout = -1;
       document.body.style.overflow = 'scroll';
       $('#some-button').focus();
-      subject::setProps({show: true});
+      setProps(subject, {show: true});
     });
 
     it('does not update the parent z-index', () => {
@@ -150,7 +150,7 @@ describe('Dialog', () => {
 
       describe('when hideOnEscKeyDown is true', () => {
         beforeEach(() => {
-          subject::setProps({hideOnEscKeyDown: true});
+          setProps(subject, {hideOnEscKeyDown: true});
           onHide.calls.reset();
           escEvent = new KeyboardEvent('keydown', {keyCode: Dialog.ESC_KEY, bubbles: true});
           spyOn(escEvent, 'preventDefault');
@@ -188,7 +188,7 @@ describe('Dialog', () => {
     describe('when the backdrop is clicked', () => {
       describe('when hideOnBackdropClick is true', () => {
         beforeEach(() => {
-          subject::setProps({hideOnBackdropClick: true});
+          setProps(subject, {hideOnBackdropClick: true});
           onHide.calls.reset();
           $('.pui-dialog-backdrop').simulate('click');
         });
@@ -316,7 +316,7 @@ describe('Dialog', () => {
 
     describe('when show becomes false and animation is enabled', () => {
       beforeEach(() => {
-        subject::setProps({show: false});
+        setProps(subject, {show: false});
         jasmine.clock().tick(Dialog.defaultProps.animationDuration);
       });
 
@@ -339,7 +339,7 @@ describe('Dialog', () => {
 
     describe('when show becomes false and animation is disabled', () => {
       beforeEach(() => {
-        subject::setProps({animationDuration: 0, show: false});
+        setProps(subject, {animationDuration: 0, show: false});
       });
 
       it('removes the keydown event listener', () => {
@@ -398,7 +398,7 @@ describe('Dialog', () => {
 
   describe('when animationDuration is 0', () => {
     beforeEach(() => {
-      subject::setProps({animationDuration: 0});
+      setProps(subject, {animationDuration: 0});
     });
 
     it('does not give a transition to the backdrop', () => {
@@ -412,7 +412,7 @@ describe('Dialog', () => {
 
   describe('when given an ariaLabelledby', () => {
     beforeEach(() => {
-      subject::setProps({ariaLabelledBy: 'non-focusable', show: true});
+      setProps(subject, {ariaLabelledBy: 'non-focusable', show: true});
     });
 
     it('sets the aria-labelledby attribute on the dialog', () => {
@@ -422,7 +422,7 @@ describe('Dialog', () => {
 
   describe('when given a className', () => {
     beforeEach(() => {
-      subject::setProps({className: 'custom-modal-class'});
+      setProps(subject, {className: 'custom-modal-class'});
     });
 
     it('applies the className to the modal backdrop', () => {
@@ -432,7 +432,7 @@ describe('Dialog', () => {
 
   describe('when given a dialogClassName', () => {
     beforeEach(() => {
-      subject::setProps({dialogClassName: 'custom-dialog-class'});
+      setProps(subject, {dialogClassName: 'custom-dialog-class'});
     });
 
     it('applies it as a className to the modal dialog', () => {
@@ -442,7 +442,7 @@ describe('Dialog', () => {
 
   describe('when given a width', () => {
     beforeEach(() => {
-      subject::setProps({width: '240px', animationDuration: 0});
+      setProps(subject, {width: '240px', animationDuration: 0});
     });
 
     it('does not add a className to the dialog', () => {

@@ -33,7 +33,7 @@ describe('FormUnit', () => {
 
   describe('inline', () => {
     beforeEach(() => {
-      subject::setProps({inline: true, label: 'Instance Name', help: 'my-help-text'});
+      setProps(subject, {inline: true, label: 'Instance Name', help: 'my-help-text'});
     });
 
     it('renders the field and label on a grid next to each other', () => {
@@ -52,7 +52,7 @@ describe('FormUnit', () => {
 
   describe('hideHelpRow', () => {
     beforeEach(() => {
-      subject::setProps({hideHelpRow: true});
+      setProps(subject, {hideHelpRow: true});
     });
 
     it('does not render the help row', () => {
@@ -62,7 +62,7 @@ describe('FormUnit', () => {
 
   describe('inline and hideHelpRow', () => {
     beforeEach(() => {
-      subject::setProps({inline: true, hideHelpRow: true});
+      setProps(subject, {inline: true, hideHelpRow: true});
     });
 
     it('does not render the help row', () => {
@@ -72,7 +72,7 @@ describe('FormUnit', () => {
 
   describe('label', () => {
     beforeEach(() => {
-      subject::setProps({
+      setProps(subject, {
         label: 'Instance Name'
       });
     });
@@ -88,7 +88,7 @@ describe('FormUnit', () => {
 
   describe('retainLabelHeight', () => {
     beforeEach(() => {
-      subject::setProps({
+      setProps(subject, {
         retainLabelHeight: true
       });
     });
@@ -100,7 +100,7 @@ describe('FormUnit', () => {
 
   describe('labelClassName', () => {
     beforeEach(() => {
-      subject::setProps({
+      setProps(subject, {
         label: 'Some label',
         labelClassName: 'h4'
       });
@@ -113,7 +113,7 @@ describe('FormUnit', () => {
 
   describe('labelFor', () => {
     beforeEach(() => {
-      subject::setProps({
+      setProps(subject, {
         label: 'some-label',
         labelFor: 'instance-name'
       });
@@ -126,7 +126,7 @@ describe('FormUnit', () => {
 
   describe('labelPosition', () => {
     beforeEach(() => {
-      subject::setProps({
+      setProps(subject, {
         label: 'Instance Name',
         labelPosition: 'after'
       });
@@ -139,7 +139,7 @@ describe('FormUnit', () => {
 
   describe('postLabel', () => {
     beforeEach(() => {
-      subject::setProps({
+      setProps(subject, {
         postLabel: <span className="more-stuff">another label</span>
       });
     });
@@ -152,7 +152,7 @@ describe('FormUnit', () => {
 
     describe('when inline', () => {
       beforeEach(() => {
-        subject::setProps({inline: true});
+        setProps(subject, {inline: true});
       });
 
       it('does not render the postLabel', () => {
@@ -168,7 +168,7 @@ describe('FormUnit', () => {
         setValues = jasmine.createSpy('setValues');
         state = {key: 'value'};
 
-        subject::setProps({postLabel, state, setValues});
+        setProps(subject, {postLabel, state, setValues});
       });
 
       it('calls the postLabel function', () => {
@@ -183,7 +183,7 @@ describe('FormUnit', () => {
 
   describe('tooltip', () => {
     beforeEach(() => {
-      subject::setProps({
+      setProps(subject, {
         label: 'Some label',
         tooltip: <span>This is a tooltip.</span>
       });
@@ -204,7 +204,7 @@ describe('FormUnit', () => {
 
   describe('tooltipPlacement', () => {
     beforeEach(() => {
-      subject::setProps({
+      setProps(subject, {
         label: 'Some label',
         tooltip: <span>This is a tooltip.</span>,
         tooltipPlacement: 'right'
@@ -220,7 +220,7 @@ describe('FormUnit', () => {
 
   describe('tooltipSize', () => {
     beforeEach(() => {
-      subject::setProps({
+      setProps(subject, {
         label: 'Some label',
         tooltip: <span>This is a tooltip.</span>,
         tooltipSize: 'sm'
@@ -236,7 +236,7 @@ describe('FormUnit', () => {
 
   describe('optional', () => {
     beforeEach(() => {
-      subject::setProps({label: 'Some label', optional: true});
+      setProps(subject, {label: 'Some label', optional: true});
     });
 
     it('renders the optional text', () => {
@@ -246,7 +246,7 @@ describe('FormUnit', () => {
 
   describe('optionalText', () => {
     beforeEach(() => {
-      subject::setProps({label: 'Some label', optional: true, optionalText: '(Optional - custom text)'});
+      setProps(subject, {label: 'Some label', optional: true, optionalText: '(Optional - custom text)'});
     });
 
     it('renders the custom optional text when provided', () => {
@@ -256,7 +256,7 @@ describe('FormUnit', () => {
 
   describe('optionalText empty string', () => {
     beforeEach(() => {
-      subject::setProps({label: 'Some label', optional: true, optionalText: ''});
+      setProps(subject, {label: 'Some label', optional: true, optionalText: ''});
     });
 
     it('renders the custom optional text when provided', () => {
@@ -270,7 +270,7 @@ describe('FormUnit', () => {
 
   describe('help', () => {
     beforeEach(() => {
-      subject::setProps({
+      setProps(subject, {
         help: (<div>
           <pre>help</pre>
         </div>)
@@ -285,7 +285,7 @@ describe('FormUnit', () => {
 
   describe('fieldRowClassName', () => {
     beforeEach(() => {
-      subject::setProps({fieldRowClassName: 'some-field-row'});
+      setProps(subject, {fieldRowClassName: 'some-field-row'});
     });
 
     describe('not inline', () => {
@@ -296,7 +296,7 @@ describe('FormUnit', () => {
 
     describe('inline', () => {
       beforeEach(() => {
-        subject::setProps({inline: true});
+        setProps(subject, {inline: true});
       });
 
       it('gives the class name to the field row', () => {
@@ -307,7 +307,7 @@ describe('FormUnit', () => {
 
   describe('labelRowClassName', () => {
     beforeEach(() => {
-      subject::setProps({labelRowClassName: 'some-label-row', label: 'some label'});
+      setProps(subject, {labelRowClassName: 'some-label-row', label: 'some label'});
     });
 
     describe('not inline', () => {
@@ -318,7 +318,7 @@ describe('FormUnit', () => {
 
     describe('inline', () => {
       beforeEach(() => {
-        subject::setProps({inline: true});
+        setProps(subject, {inline: true});
       });
 
       it('gives the class name to the label row', () => {
@@ -337,7 +337,7 @@ describe('FormUnit', () => {
 
   describe('when there is no tooltip', () => {
     beforeEach(() => {
-      subject::setProps({
+      setProps(subject, {
         label: 'Some label',
         tooltip: null
       });
@@ -351,7 +351,7 @@ describe('FormUnit', () => {
 
   describe('when there is no help block', () => {
     beforeEach(() => {
-      subject::setProps({help: null});
+      setProps(subject, {help: null});
     });
 
     it('renders an empty div', () => {
@@ -361,7 +361,7 @@ describe('FormUnit', () => {
 
   describe('when hasError is true', () => {
     beforeEach(() => {
-      subject::setProps({hasError: true});
+      setProps(subject, {hasError: true});
     });
 
     it('applies the has-error class', () => {
@@ -375,7 +375,7 @@ describe('FormUnit', () => {
 
   describe('when there is no label, children, or help block', () => {
     beforeEach(() => {
-      subject::setProps({label: null, children: null, help: null});
+      setProps(subject, {label: null, children: null, help: null});
     });
 
     it('renders nothing', () => {

@@ -22,7 +22,7 @@ describe('ProgressBar', () => {
 
   describe('when given a className', () => {
     beforeEach(() => {
-      subject::setProps({className: 'custom-class'});
+      setProps(subject, {className: 'custom-class'});
     });
 
     it('applies the class to the outer div', () => {
@@ -32,7 +32,7 @@ describe('ProgressBar', () => {
 
   describe('when given a barClassName', () => {
     beforeEach(() => {
-      subject::setProps({barClassName: 'custom-bar-class'});
+      setProps(subject, {barClassName: 'custom-bar-class'});
     });
 
     it('applies the class to the progress bar', () => {
@@ -42,7 +42,7 @@ describe('ProgressBar', () => {
 
   describe('when given a value', () => {
     beforeEach(() => {
-      subject::setProps({value: 78});
+      setProps(subject, {value: 78});
     });
 
     it('sets the attributes of the progress bar accordingly', () => {

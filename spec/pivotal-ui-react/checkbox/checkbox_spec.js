@@ -72,7 +72,7 @@ describe('Checkbox', () => {
 
   describe('children', () => {
     beforeEach(() => {
-      subject::setProps({children: <div className="label-content">hello</div>});
+      setProps(subject, {children: <div className="label-content">hello</div>});
     });
 
     it('renders the children inside the label', () => {
@@ -82,7 +82,7 @@ describe('Checkbox', () => {
 
   describe('style', () => {
     beforeEach(() => {
-      subject::setProps({style: {color: 'green', backgroundColor: 'red'}});
+      setProps(subject, {style: {color: 'green', backgroundColor: 'red'}});
     });
 
     it('puts the style on the outer div', () => {
@@ -92,7 +92,7 @@ describe('Checkbox', () => {
 
   describe('labelClassName', () => {
     beforeEach(() => {
-      subject::setProps({labelClassName: 'some-class'});
+      setProps(subject, {labelClassName: 'some-class'});
     });
 
     it('renders a label with the class name', () => {
@@ -102,7 +102,7 @@ describe('Checkbox', () => {
 
   describe('indeterminate', () => {
     beforeEach(() => {
-      subject::setProps({indeterminate: true});
+      setProps(subject, {indeterminate: true});
     });
 
     it('renders a remove Icon', () => {
@@ -131,7 +131,7 @@ describe('Checkbox', () => {
 
   describe('noSelect', () => {
     beforeEach(() => {
-      subject::setProps({noSelect: true});
+      setProps(subject, {noSelect: true});
     });
 
     it('adds the pui-no-select modifier class to the label', () => {

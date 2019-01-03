@@ -17,7 +17,7 @@ describe('UIButton', () => {
 
   describe('when href attribute is set', () => {
     beforeEach(() => {
-      subject::setProps({href: 'http://example.com'});
+      setProps(subject, {href: 'http://example.com'});
     });
 
     it('creates a link', () => {
@@ -42,7 +42,7 @@ describe('UIButton', () => {
 
     describe('when aria-label is specified', () => {
       beforeEach(() => {
-        subject::setProps({'aria-label': 'my aria label'});
+        setProps(subject, {'aria-label': 'my aria label'});
       });
 
       it('uses the supplied value', () => {
@@ -52,7 +52,7 @@ describe('UIButton', () => {
 
     describe('when icon-only', () => {
       beforeEach(() => {
-        subject::setProps({iconOnly: true});
+        setProps(subject, {iconOnly: true});
       });
 
       it('has no aria-label attribute for icon-only buttons', () => {
@@ -74,7 +74,7 @@ describe('UIButton', () => {
   describe('type', () => {
     describe('for a link', () => {
       beforeEach(() => {
-        subject::setProps({href: 'http://example.com'});
+        setProps(subject, {href: 'http://example.com'});
       });
 
       it('has no type attribute by default', () => {
@@ -91,7 +91,7 @@ describe('UIButton', () => {
     describe('when type attribute is supplied', () => {
       describe('for a link', () => {
         beforeEach(() => {
-          subject::setProps({href: 'http://example.com', type: 'text/html'});
+          setProps(subject, {href: 'http://example.com', type: 'text/html'});
         });
 
         it('passes that value to the link', () => {
@@ -101,7 +101,7 @@ describe('UIButton', () => {
 
       describe('for a button', () => {
         beforeEach(() => {
-          subject::setProps({type: 'submit'});
+          setProps(subject, {type: 'submit'});
         });
 
         it('passes that value to the button', () => {
@@ -113,7 +113,7 @@ describe('UIButton', () => {
 
   describe('when kind is default', () => {
     beforeEach(() => {
-      subject::setProps({kind: 'default'});
+      setProps(subject, {kind: 'default'});
     });
 
     it('adds the kind class to the button', () => {
@@ -123,7 +123,7 @@ describe('UIButton', () => {
 
   describe('when kind is danger', () => {
     beforeEach(() => {
-      subject::setProps({kind: 'danger'});
+      setProps(subject, {kind: 'danger'});
     });
 
     it('adds the kind class to the button', () => {
@@ -133,7 +133,7 @@ describe('UIButton', () => {
 
   describe('when kind is brand', () => {
     beforeEach(() => {
-      subject::setProps({kind: 'brand'});
+      setProps(subject, {kind: 'brand'});
     });
 
     it('adds the kind class to the button', () => {
@@ -143,7 +143,7 @@ describe('UIButton', () => {
 
   describe('when kind is primary', () => {
     beforeEach(() => {
-      subject::setProps({kind: 'primary'});
+      setProps(subject, {kind: 'primary'});
     });
 
     it('adds the kind class to the button', () => {
@@ -153,7 +153,7 @@ describe('UIButton', () => {
 
   describe('when large is true', () => {
     beforeEach(() => {
-      subject::setProps({large: true});
+      setProps(subject, {large: true});
     });
 
     it('adds the large button class', () => {
@@ -163,7 +163,7 @@ describe('UIButton', () => {
 
   describe('when full width is true', () => {
     beforeEach(() => {
-      subject::setProps({fullWidth: true});
+      setProps(subject, {fullWidth: true});
     });
 
     it('adds the large button class', () => {
@@ -173,7 +173,7 @@ describe('UIButton', () => {
 
   describe('when small is true', () => {
     beforeEach(() => {
-      subject::setProps({small: true});
+      setProps(subject, {small: true});
     });
 
     it('adds the large button class', () => {
@@ -183,7 +183,7 @@ describe('UIButton', () => {
 
   describe('when iconOnly is true', () => {
     beforeEach(() => {
-      subject::setProps({iconOnly: true});
+      setProps(subject, {iconOnly: true});
     });
 
     it('adds the large button class', () => {
@@ -193,12 +193,12 @@ describe('UIButton', () => {
 
   describe('when alt is true', () => {
     beforeEach(() => {
-      subject::setProps({alt: true});
+      setProps(subject, {alt: true});
     });
 
     describe('when kind is default', () => {
       beforeEach(() => {
-        subject::setProps({kind: 'default'});
+        setProps(subject, {kind: 'default'});
       });
 
       it('adds appropriate alt class to the button', () => {
@@ -208,7 +208,7 @@ describe('UIButton', () => {
 
     describe('when kind is danger', () => {
       beforeEach(() => {
-        subject::setProps({kind: 'danger'});
+        setProps(subject, {kind: 'danger'});
       });
 
       it('adds appropriate alt class to the button', () => {
@@ -218,7 +218,7 @@ describe('UIButton', () => {
 
     describe('when kind is brand', () => {
       beforeEach(() => {
-        subject::setProps({kind: 'brand'});
+        setProps(subject, {kind: 'brand'});
       });
 
       it('adds appropriate alt class to the button', () => {
@@ -228,7 +228,7 @@ describe('UIButton', () => {
 
     describe('when kind is primary', () => {
       beforeEach(() => {
-        subject::setProps({kind: 'primary'});
+        setProps(subject, {kind: 'primary'});
       });
 
       it('adds appropriate alt class to the button', () => {
@@ -239,12 +239,12 @@ describe('UIButton', () => {
 
   describe('when flat is true', () => {
     beforeEach(() => {
-      subject::setProps({flat: true});
+      setProps(subject, {flat: true});
     });
 
     describe('when kind is default', () => {
       beforeEach(() => {
-        subject::setProps({kind: 'default'});
+        setProps(subject, {kind: 'default'});
       });
 
       it('adds appropriate flat class to the button', () => {
@@ -254,7 +254,7 @@ describe('UIButton', () => {
 
     describe('when kind is danger', () => {
       beforeEach(() => {
-        subject::setProps({kind: 'danger'});
+        setProps(subject, {kind: 'danger'});
       });
 
       it('adds appropriate flat class to the button', () => {
@@ -264,7 +264,7 @@ describe('UIButton', () => {
 
     describe('when kind is brand', () => {
       beforeEach(() => {
-        subject::setProps({kind: 'brand'});
+        setProps(subject, {kind: 'brand'});
       });
 
       it('adds appropriate flat class to the button', () => {
@@ -274,7 +274,7 @@ describe('UIButton', () => {
 
     describe('when kind is primary', () => {
       beforeEach(() => {
-        subject::setProps({kind: 'primary'});
+        setProps(subject, {kind: 'primary'});
       });
 
       it('adds appropriate flat class to the button', () => {
@@ -285,7 +285,7 @@ describe('UIButton', () => {
 
   describe('when given a className', () => {
     beforeEach(() => {
-      subject::setProps({className: 'custom-class-1 custom-class-2'});
+      setProps(subject, {className: 'custom-class-1 custom-class-2'});
     });
 
     it('passes custom classNames through', () => {
@@ -296,7 +296,7 @@ describe('UIButton', () => {
 
   describe('when given data attributes', () => {
     beforeEach(() => {
-      subject::setProps({'data-click': 'myFunction', 'data-foo': 'bar'});
+      setProps(subject, {'data-click': 'myFunction', 'data-foo': 'bar'});
     });
 
     it('passes through the data-attributes', () => {
@@ -307,7 +307,7 @@ describe('UIButton', () => {
 
   describe('icon property', () => {
     beforeEach(() => {
-      subject::setProps({icon: <Icon src="add"/>});
+      setProps(subject, {icon: <Icon src="add"/>});
     });
 
     it('renders with an icon child node if one is passed in', () => {
@@ -317,7 +317,7 @@ describe('UIButton', () => {
 
   describe('iconPosition', () => {
     beforeEach(() => {
-      subject::setProps({icon: <Icon src="spinner-sm"/>});
+      setProps(subject, {icon: <Icon src="spinner-sm"/>});
     });
 
     it('renders the icon to the left by default', () => {
@@ -326,7 +326,7 @@ describe('UIButton', () => {
 
     describe('is set to left', () => {
       beforeEach(() => {
-        subject::setProps({iconPosition: 'left'});
+        setProps(subject, {iconPosition: 'left'});
       });
 
       it('renders the icon to the left', () => {
@@ -336,7 +336,7 @@ describe('UIButton', () => {
 
     describe('is set right', () => {
       beforeEach(() => {
-        subject::setProps({iconPosition: 'right'});
+        setProps(subject, {iconPosition: 'right'});
       });
 
       it('renders the icon to the right', () => {

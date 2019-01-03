@@ -60,7 +60,7 @@ describe('TextFilter', () => {
 
   describe('when custom placeholder text is given', () => {
     beforeEach(() => {
-      subject::setProps({filterPlaceholderText: 'Your text here...'});
+      setProps(subject, {filterPlaceholderText: 'Your text here...'});
     });
 
     it('gives the text input the custom placeholder', () => {
@@ -104,12 +104,12 @@ describe('TextFilter', () => {
     describe('when there are no results', () => {
       beforeEach(() => {
         filter.and.returnValue([]);
-        subject::setProps({data: []});
+        setProps(subject, {data: []});
       });
 
       describe('and emptyState is given', () => {
         beforeEach(() => {
-          subject::setProps({
+          setProps(subject, {
             data: [],
             emptyState: (<p id="wompwomp">No results</p>)
           });
