@@ -73,7 +73,6 @@
     "node-sass": "^4.0.0",
     "object-assign": "^4.0.1",
     "pivotal-js-jasmine-matchers": "^0.1.1",
-    "pivotal-js-react-test-helpers": "^0.1.0",
     "portastic": "^1.0.1",
     "postcss-cssnext": "^3.1.0",
     "puppeteer": "^1.4.0",

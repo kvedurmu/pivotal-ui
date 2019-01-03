@@ -12,9 +12,7 @@ import 'pivotal-js-jasmine-matchers';
 import 'react-spy-on-render';
 import ReactTestUtils from 'react-dom/test-utils';
 import stringifier from 'stringifier';
-import ReactTestHelpers from 'pivotal-js-react-test-helpers';
 
-const {spyOnRender, ...reactTestHelpers} = ReactTestHelpers;
 const {DiffBuilder} = jasmine;
 
 export const findByClass = ReactTestUtils.findRenderedDOMComponentWithClass;
@@ -22,6 +20,33 @@ export const findAllByClass = ReactTestUtils.scryRenderedDOMComponentsWithClass;
 export const findByTag = ReactTestUtils.findRenderedDOMComponentWithTag;
 export const findAllByTag = ReactTestUtils.scryRenderedDOMComponentsWithTag;
 export const clickOn = ReactTestUtils.Simulate.click;
+
+(function ($) {
+  const assertResults = obj => {
+    if (!obj.length) throw new Error(`jQuery Simulate has an empty selection for '${obj.selector}'`);
+  };
+
+  $.fn.simulate = function (eventName, ...args) {
+    assertResults(this);
+
+    $.each(this, function () {
+      if (['mouseOver', 'mouseOut'].includes(eventName)) ReactTestUtils.SimulateNative[eventName](this, ...args);
+      else ReactTestUtils.Simulate[eventName](this, ...args);
+    });
+
+    return this;
+  };
+
+  $.fn.simulateNative = function (eventName, ...args) {
+    assertResults(this);
+
+    $.each(this, function () {
+      ReactTestUtils.Simulate[eventName](this, ...args);
+    });
+
+    return this;
+  };
+})(jQuery);
 
 beforeAll(() => {
   jasmine.addMatchers({
@@ -71,15 +96,8 @@ Object.assign(global, {
   MockRaf,
   React,
   ReactDOM,
-  ReactTestUtils,
-  ...reactTestHelpers
+  ReactTestUtils
 });
-
-global.shallowRender = jsx => {
-  const shallowRenderer = ReactTestUtils.createRenderer();
-  shallowRenderer.render(jsx);
-  return shallowRenderer.getRenderOutput();
-};
 
 global.setProps = function setProps(props, node = root) {
   const Component = this.constructor;

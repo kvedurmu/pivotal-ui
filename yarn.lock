@@ -7524,11 +7524,6 @@ pivotal-js-jasmine-matchers@^0.1.1:
     jasmine_dom_matchers "^1.4.0"
     qs "^5.2.0"
 
-pivotal-js-react-test-helpers@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/pivotal-js-react-test-helpers/-/pivotal-js-react-test-helpers-0.1.0.tgz#0f951e6d00c4fcd9678ac69b29c59af888c25910"
-  integrity sha1-D5UebQDE/NlnisabKcWa+IjCWRA=
-
 pixrem@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/pixrem/-/pixrem-4.0.1.tgz#2da4a1de6ec4423c5fc3794e930b81d4490ec686"
