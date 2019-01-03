@@ -1,1 +1,3 @@
-global.setImmediate = require('./mock_set_immediate');
+import mockSetImmediate from './mock_set_immediate';
+
+global.setImmediate = mockSetImmediate;

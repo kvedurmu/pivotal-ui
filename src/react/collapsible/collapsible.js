@@ -16,7 +16,6 @@ class CollapsibleComponent extends mixin(React.Component).with(Animation) {
   static propTypes = {
     boundingClientRect: PropTypes.object,
     container: PropTypes.object,
-    containerReady: PropTypes.object,
     delay: PropTypes.number,
     disableAnimation: PropTypes.bool,
     expanded: PropTypes.bool,
@@ -44,7 +43,7 @@ class CollapsibleComponent extends mixin(React.Component).with(Animation) {
   };
 
   render() {
-    let {boundingClientRect: {height = 0}, children, container, containerReady, delay, expanded, onEntered, onExited, ...others} = this.props;
+    let {boundingClientRect: {height = 0}, children, container, delay, expanded, onEntered, onExited, ...others} = this.props;
     const fractionOpen = this.animate('fractionOpen', expanded ? 1 : 0, delay);
     const isAnimating = (!expanded && fractionOpen > 0) || (expanded && fractionOpen < 1);
     const style = (height && isAnimating) ? {marginBottom: -height * (1 - fractionOpen)} : {};

@@ -1,4 +1,3 @@
-console.log('up here');
 import '@babel/polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -91,17 +90,6 @@ beforeEach(() => {
   $('body').find('#root').remove().end().append('<main id="root"/>');
   jasmine.clock().install();
   MockPromises.install(Promise);
-});
-
-beforeEach(() => {
-  const consoleWarn = console.warn;
-  console.warn = message => {
-    if (message.match(/Failed propType/)) {
-      throw new Error(message);
-    } else {
-      consoleWarn.apply(console, arguments);
-    }
-  };
 });
 
 afterEach(() => {

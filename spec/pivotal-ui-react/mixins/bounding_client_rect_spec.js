@@ -1,17 +1,18 @@
-console.log('in here');
 import '../spec_helper';
 import {useBoundingClientRect} from '../../../src/react/mixins/components/bounding_client_rect';
 
-fdescribe('BoundingClientRect', () => {
+describe('BoundingClientRect', () => {
   const width = 100;
   const height = 200;
   let Klass, subject, resizeSpy;
+
   beforeEach(() => {
     class Base extends React.Component {
       render() {
         return (<div className="klass" style={{width, height}}/>);
       }
     }
+
     spyOn(Base.prototype, 'render').and.callThrough();
     Klass = Base;
     const Component = useBoundingClientRect(Klass);
@@ -20,21 +21,9 @@ fdescribe('BoundingClientRect', () => {
   });
 
   it('renders the component with a bounding rect and container', () => {
-    expect(Klass).toHaveBeenRenderedWithProps({container: $('.klass')[0], boundingClientRect: jasmine.any(Object), containerReady: jasmine.any(Promise)});
-  });
-
-  describe('containerReady', () => {
-    describe('when some time has passed', () => {
-      beforeEach(() => {
-        MockNextTick.next();
-      });
-
-      it('returns a promise with the container', () => {
-        const containerReadySpy = jasmine.createSpy('containerReady');
-        subject.state.containerReady.then(containerReadySpy);
-        MockPromises.tick();
-        expect(containerReadySpy).toHaveBeenCalledWith(subject.state.container);
-      });
+    expect(Klass).toHaveBeenRenderedWithProps({
+      container: $('.klass')[0],
+      boundingClientRect: jasmine.any(Object)
     });
   });
 
@@ -57,6 +46,7 @@ fdescribe('BoundingClientRect', () => {
     describe('when the bounding rect changes', () => {
       const width = 200;
       const height = 400;
+
       beforeEach(() => {
         Klass.prototype.render.calls.reset();
         const el = ReactDOM.findDOMNode(subject);
@@ -74,6 +64,7 @@ fdescribe('BoundingClientRect', () => {
 
     describe('when the bounding rect does not change', () => {
       let boundingClientRect;
+
       beforeEach(() => {
         boundingClientRect = subject.props.boundingClientRect;
         Klass.prototype.render.calls.reset();

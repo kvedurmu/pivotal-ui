@@ -1,3 +1,3 @@
-module.exports = jasmine.createSpy('setImmediate').and.callFake(function(cb) {
+export default jasmine.createSpy('setImmediate').and.callFake(function(cb) {
   setTimeout(cb, 0);
 });

@@ -13,14 +13,8 @@ export const useBoundingClientRect = Klass => {
   return class BoundingClientRect extends mixin(React.PureComponent).with(Mounted) {
     constructor(props, context) {
       super(props, context);
-      let resolver;
-      const containerReady = new Promise(resolve => resolver = resolve);
-      containerReady.resolve = resolver;
       const {state} = this;
-      this.state = {...state, container: null, containerReady};
-      this.resize = rafify(this.resize);
-
-      this.getBoundingClientRect = this.getBoundingClientRect.bind(this);
+      this.state = {...state, container: null};
     }
 
     componentDidMount() {
@@ -28,7 +22,6 @@ export const useBoundingClientRect = Klass => {
       privates.set(this, {resize: this.resize});
       window.addEventListener('resize', this.resize);
       this.setState({container: ReactDOM.findDOMNode(this.component)});
-      setImmediate(() => this.state.containerReady.resolve(this.state.container));
     }
 
     componentWillUnmount() {
@@ -42,21 +35,20 @@ export const useBoundingClientRect = Klass => {
       if (!shallowEqual(this.props, nextProps)) this.resize();
     }
 
-    getBoundingClientRect() {
+    getBoundingClientRect = () => {
       return this.state.container && this.state.container.getBoundingClientRect() || {};
-    }
+    };
 
-    resize = () => {
+    resize = rafify(() => {
       const {boundingClientRect: prevBoundingClientRect} = privates.get(this) || {};
       const boundingClientRect = this.getBoundingClientRect();
       const isNotEqual = property => boundingClientRect[property] !== prevBoundingClientRect[property];
       if (!prevBoundingClientRect || properties.some(isNotEqual)) {
         this.mounted() && this.forceUpdate();
       }
-    }
+    });
 
     render() {
-      console.log('render?');
       const {resize} = privates.get(this) || {};
       const boundingClientRect = this.getBoundingClientRect();
       privates.set(this, {boundingClientRect, resize});

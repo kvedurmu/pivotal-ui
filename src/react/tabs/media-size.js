@@ -12,4 +12,4 @@ export default {
 
     return window.matchMedia(`(min-width: ${minWidth}px)`).matches;
   }
-}
+};

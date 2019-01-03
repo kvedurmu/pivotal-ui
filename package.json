@@ -29,6 +29,7 @@
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.0",
     "bluebird": "^3.5.3",
+    "core-js": "^2.6.1",
     "css-loader": "^2.1.0",
     "del": "^3.0.0",
     "eslint": "^5.11.1",
